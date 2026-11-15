@@ -1203,6 +1203,10 @@ html {
 }
 
 @media (max-width: 767px) {
+  .hero-track {
+    height: 130svh;
+  }
+
   .section-pad {
     padding: 72px var(--pad);
   }

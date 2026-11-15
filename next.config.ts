@@ -44,10 +44,28 @@ const nextConfig: NextConfig = {
     formats: ['image/avif', 'image/webp'],
   },
   async headers() {
+    const isDev = process.env.NODE_ENV === 'development'
+    const csp = [
+      "default-src 'self'",
+      "script-src 'self' 'unsafe-inline'" + (isDev ? " 'unsafe-eval'" : ""),
+      "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
+      "font-src 'self' https://fonts.gstatic.com",
+      "img-src 'self' data: https:",
+      "media-src 'self' https:",
+      "connect-src 'self'",
+      "frame-ancestors 'none'",
+    ].join('; ')
+    
     return [
       {
         source: '/(.*)',
-        headers: securityHeaders,
+        headers: [
+          ...securityHeaders.filter(h => h.key !== 'Content-Security-Policy'),
+          {
+            key: 'Content-Security-Policy',
+            value: csp,
+          },
+        ],
       },
     ]
   },

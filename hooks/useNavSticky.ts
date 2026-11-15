@@ -18,9 +18,8 @@ export function useNavSticky(pathname: string): { isStuck: boolean } {
 
     const update = () => {
       rafRef.current = null
-      // The pinned hero is still on screen while its track bottom sits
-      // below the viewport top; once it clears, the bar takes over.
-      setIsStuck(track.getBoundingClientRect().bottom <= 0)
+      const stuck = track.getBoundingClientRect().bottom <= 0
+      setIsStuck(stuck)
     }
 
     const schedule = () => {
