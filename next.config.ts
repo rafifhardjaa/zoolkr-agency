@@ -21,23 +21,9 @@ const securityHeaders = [
     key: 'Permissions-Policy',
     value: 'camera=(), microphone=(), geolocation=()',
   },
-  {
-    key: 'Content-Security-Policy',
-    value: [
-      "default-src 'self'",
-      "script-src 'self' 'unsafe-inline'",
-      "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
-      "font-src 'self' https://fonts.gstatic.com",
-      "img-src 'self' data: https:",
-      "media-src 'self' https:",
-      "connect-src 'self'",
-      "frame-ancestors 'none'",
-    ].join('; '),
-  },
 ]
 
 const nextConfig: NextConfig = {
-  distDir: process.env.NODE_ENV === 'development' ? '.next-dev' : '.next',
   reactStrictMode: true,
   poweredByHeader: false,
   images: {
@@ -55,12 +41,12 @@ const nextConfig: NextConfig = {
       "connect-src 'self'",
       "frame-ancestors 'none'",
     ].join('; ')
-    
+
     return [
       {
         source: '/(.*)',
         headers: [
-          ...securityHeaders.filter(h => h.key !== 'Content-Security-Policy'),
+          ...securityHeaders,
           {
             key: 'Content-Security-Policy',
             value: csp,

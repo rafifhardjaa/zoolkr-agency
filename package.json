@@ -3,9 +3,12 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev -p 3000",
+    "dev": "next dev",
     "build": "next build",
-    "start": "next start -p 3000",
+    "build:cloudflare": "next build && npx @opennextjs/cloudflare build",
+    "start": "next start",
+    "preview": "npx @opennextjs/cloudflare preview",
+    "deploy": "npx @opennextjs/cloudflare deploy",
     "lint": "eslint .",
     "optimize:media": "bash scripts/optimize-media.sh"
   },
@@ -17,14 +20,17 @@
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
+    "@opennextjs/cloudflare": "^1.20.17",
     "@tailwindcss/postcss": "4.3.5",
     "@types/node": "^24",
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "eslint": "^9",
     "eslint-config-next": "15.5.29",
+    "playwright": "^1.65.1",
     "prettier": "^3",
     "tailwindcss": "4.3.5",
-    "typescript": "^5"
+    "typescript": "^5",
+    "wrangler": "^4.162.0"
   }
 }
