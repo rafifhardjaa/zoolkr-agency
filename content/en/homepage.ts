@@ -18,7 +18,6 @@ export const enContent: HomepageContent = {
     skipLabel: 'Skip to content',
     cta: {
       label: "Let's talk",
-      // TODO(contact): replace with the studio's real inbox.
       href: 'mailto:hello@zoolkr.com',
     },
     menu: {
@@ -34,6 +33,10 @@ export const enContent: HomepageContent = {
     topline: {
       left: 'ZOOLKR / CREATIVE STUDIO',
       right: '01 / HERO',
+    },
+    place: {
+      city: 'Semarang',
+      country: 'Indonesia',
     },
     eyebrow: 'INDEPENDENT CREATIVE STUDIO',
     headline: {
@@ -156,7 +159,7 @@ export const enContent: HomepageContent = {
       kicker: 'Have a project in mind?',
       cta: { label: "Let's talk", href: 'mailto:hello@zoolkr.com' },
       email: 'hello@zoolkr.com',
-      place: '[LOCATION]',
+      place: 'Semarang, Indonesia',
       topLabel: 'Back to top',
     },
   },

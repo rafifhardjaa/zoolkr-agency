@@ -639,6 +639,60 @@ body.menu-open {
   position: absolute;
 }
 
+/* Live studio clock: WIB + UTC, monospace like the surrounding metadata. */
+.clock {
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 10px;
+  font-variant-numeric: tabular-nums;
+}
+
+.clock-zone {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 5px;
+}
+
+.clock-label {
+  opacity: 0.62;
+  font-size: 10px;
+  letter-spacing: 0.08em;
+}
+
+.clock-time {
+  font-variant-numeric: tabular-nums;
+  min-width: 3.2ch;
+  display: inline-block;
+}
+
+/* Hero clock sits on the dark hero media, so it keeps the light topline color. */
+.hero-topline-right {
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: flex-end;
+  gap: 12px;
+}
+
+.hero-clock {
+  color: #ffffff;
+}
+
+.hero-clock .clock-label {
+  color: var(--color-rose);
+  opacity: 1;
+}
+
+.footer-clock {
+  margin-left: 6px;
+}
+
+.footer-clock .clock-label {
+  color: var(--color-accent);
+  opacity: 1;
+}
+
 /* Reveal animation */
 .reveal {
   opacity: 0;

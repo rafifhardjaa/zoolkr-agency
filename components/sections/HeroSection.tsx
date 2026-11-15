@@ -1,13 +1,14 @@
 import Image from 'next/image'
 import { HeroVideo } from './HeroVideo'
 import type { HomepageContent } from '@/content/types'
+import { LiveClock } from '@/components/ui/LiveClock'
 
 interface HeroSectionProps {
   content: HomepageContent['hero']
 }
 
 export function HeroSection({ content }: HeroSectionProps) {
-  const { headline } = content
+  const { headline, place } = content
 
   return (
     <section id="hero" className="hero-track" aria-labelledby="hero-title">
@@ -29,10 +30,12 @@ export function HeroSection({ content }: HeroSectionProps) {
 
         <p className="hero-topline">
           <span>{content.topline.left}</span>
-          <span>{content.topline.right}</span>
+          <span className="hero-topline-right">
+            <span>{place.city}, {place.country}</span>
+            <LiveClock className="hero-clock" />
+          </span>
         </p>
 
-        {/* Large centered wordmark, Zando reference */}
         <div className="hero-wordmark" aria-hidden="true">
           zoolkr
         </div>
@@ -57,6 +60,7 @@ export function HeroSection({ content }: HeroSectionProps) {
               </span>
             </a>
           </div>
+
         </div>
 
         <div className="hero-foot">

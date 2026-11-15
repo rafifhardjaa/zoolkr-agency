@@ -71,6 +71,10 @@ export interface HomepageContent {
       left: string
       right: string
     }
+    place: {
+      city: string
+      country: string
+    }
     eyebrow: string
     headline: Headline
     intro: string

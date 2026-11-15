@@ -18,7 +18,6 @@ export const idContent: HomepageContent = {
     skipLabel: 'Langsung ke konten',
     cta: {
       label: 'Ngobrol dulu',
-      // TODO(contact): replace with the studio's real inbox.
       href: 'mailto:hello@zoolkr.com',
     },
     menu: {
@@ -34,6 +33,10 @@ export const idContent: HomepageContent = {
     topline: {
       left: 'ZOOLKR / STUDIO KREATIF',
       right: '01 / HERO',
+    },
+    place: {
+      city: 'Semarang',
+      country: 'Indonesia',
     },
     eyebrow: 'STUDIO KREATIF INDEPENDEN',
     headline: {
@@ -156,7 +159,7 @@ export const idContent: HomepageContent = {
       kicker: 'Punya proyek dalam pikiran?',
       cta: { label: 'Ngobrol dulu', href: 'mailto:hello@zoolkr.com' },
       email: 'hello@zoolkr.com',
-      place: '[LOKASI]',
+      place: 'Semarang, Indonesia',
       topLabel: 'Kembali ke atas',
     },
   },
