@@ -1,7 +1,7 @@
 export const idServices = {
   title: 'Layanan',
   lead: 'Zoolkr adalah studio kreatif independen. Kami membangun website, memotret foto dan video, dan menjalankan agency konten kreator untuk brand yang butuh suara asli di media sosial.',
-  intro: 'Kami menerima jumlah proyek terbatas setiap kuartal, sehingga karya tetap baik.',
+  intro: 'Kami menerima sejumlah proyek terbatas setiap kuartal, supaya kualitas karya tetap terjaga.',
   services: [
     {
       number: '01',

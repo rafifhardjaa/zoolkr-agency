@@ -75,7 +75,7 @@ export const idContent: HomepageContent = {
       subtitle: '02 / CARA KAMI BERPIKIR',
       manifesto: 'Karya yang kami buat, Anda bilang: *kita buat ini*.',
       body: 'Zoolkr adalah studio kreatif. Kami membangun website, memotret foto, dan memproduksi video. Kami juga menjalankan agency konten kreator untuk brand yang butuh suara asli di media sosial.',
-      muted: 'Kami bekerja seperti tim kecil: satu proyek dalam satu waktu, satu keputusan dalam satu waktu, tanpa penyerahan antar departemen yang saling tidak mengenal.',
+      muted: 'Kami bekerja seperti tim kecil: satu proyek dalam satu waktu, satu keputusan dalam satu waktu, tanpa serah-terima antar departemen yang tidak saling mengenal.',
       caption: 'Ruang kerja studio',
       cta: { label: 'Keahlian kami', href: '#expertise' },
     },
@@ -84,7 +84,7 @@ export const idContent: HomepageContent = {
       subtitle: '03 / YANG KAMI LAKUKAN',
       title: 'Yang kami lakukan *dengan baik*.',
       intro: 'Kami bekerja dalam tiga praktik. Masing-masing diisi oleh orang yang melakukan hal itu setiap hari.',
-      note: 'Kami menerima jumlah proyek terbatas setiap kuartal, sehingga karya tetap baik.',
+      note: 'Kami menerima sejumlah proyek terbatas setiap kuartal, supaya kualitas karya tetap terjaga.',
       cta: { label: 'Mulai proyek', href: '/id/kontak' },
       services: [
         {
@@ -176,7 +176,7 @@ export const idContent: HomepageContent = {
     faq: {
       label: 'Z / PERTANYAAN UMUM',
       subtitle: '05 / PERTANYAAN',
-      title: 'Pertanyaan *Baik*',
+      title: 'Pertanyaan *baik*',
       items: [
         {
           question: 'Berapa biaya sebuah proyek website?',
