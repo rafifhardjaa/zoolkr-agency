@@ -1285,6 +1285,8 @@ html {
   z-index: 40;
   flex-direction: column;
   gap: 6px;
+  width: 112px;
+  transition: opacity var(--duration-fast) var(--ease-out-smooth);
   display: flex;
   position: fixed;
   top: 50%;
@@ -1300,10 +1302,12 @@ html {
   transition: color var(--duration-fast) var(--ease-out-smooth);
   background: none;
   border: 0;
-  border-left: 2px solid transparent;
-  padding: 6px 6px 6px 10px;
+  border-right: 2px solid transparent;
+  padding: 6px 10px 6px 0;
   font-size: 11px;
-  text-align: left;
+  white-space: nowrap;
+  text-align: right;
+  width: 100%;
 }
 
 .section-rail button:hover {
@@ -1312,7 +1316,7 @@ html {
 
 .section-rail button[aria-current='true'] {
   color: var(--color-accent);
-  border-left-color: var(--color-accent);
+  border-right-color: var(--color-accent);
 }
 
 .section-rail button:focus-visible {
@@ -1335,9 +1339,7 @@ html {
 
 /* Reserve a gutter so no section text slides under the fixed rail. */
 @media (min-width: 1024px) and (pointer: fine) {
-  .section-pad,
-  .footer-cta,
-  .footer-base {
+  .section-pad {
     padding-right: calc(var(--pad) + 120px);
   }
 }
