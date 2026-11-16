@@ -32,3 +32,8 @@ next-env.d.ts
 
 # misc
 .DS_Store
+
+# local agent tooling
+/.agent-logs/
+/.commandcode/
+/.playwright-mcp/
