@@ -1,6 +1,7 @@
 import type { HomepageContent } from '@/content/types'
 import { RevealText } from '@/components/ui/RevealText'
 import { SectionMeta } from '@/components/ui/SectionMeta'
+import { Accent } from '@/components/ui/Accent'
 
 interface WorkSectionProps {
   content: HomepageContent['sections']['work']
@@ -12,7 +13,7 @@ export function WorkSection({ content }: WorkSectionProps) {
       <SectionMeta label={content.label} subtitle={content.subtitle} />
       <div className="work-heading">
         <RevealText as="h2" className="section-title">
-          {content.title}
+          <Accent text={content.title} />
         </RevealText>
         <p>{content.intro}</p>
       </div>

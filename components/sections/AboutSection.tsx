@@ -1,6 +1,7 @@
 import type { HomepageContent } from '@/content/types'
 import { RevealText } from '@/components/ui/RevealText'
 import { SectionMeta } from '@/components/ui/SectionMeta'
+import { Accent } from '@/components/ui/Accent'
 
 interface AboutSectionProps {
   content: HomepageContent['sections']['about']
@@ -11,7 +12,7 @@ export function AboutSection({ content }: AboutSectionProps) {
     <section id="about" className="about section-pad">
       <SectionMeta label={content.label} subtitle={content.subtitle} />
       <RevealText as="h2" className="manifesto">
-        {content.manifesto}
+        <Accent text={content.manifesto} />
       </RevealText>
       <div className="about-bottom">
         <RevealText as="div" className="about-photo">

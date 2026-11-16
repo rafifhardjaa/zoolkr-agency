@@ -1,6 +1,7 @@
 import type { HomepageContent } from '@/content/types'
 import { RevealText } from '@/components/ui/RevealText'
 import { SectionMeta } from '@/components/ui/SectionMeta'
+import { Accent } from '@/components/ui/Accent'
 
 interface ExpertiseSectionProps {
   content: HomepageContent['sections']['expertise']
@@ -12,7 +13,7 @@ export function ExpertiseSection({ content }: ExpertiseSectionProps) {
       <div className="expertise-intro">
         <SectionMeta label={content.label} subtitle={content.subtitle} />
         <RevealText as="h2" className="section-title">
-          {content.title}
+          <Accent text={content.title} />
         </RevealText>
         <p>{content.intro}</p>
         <a className="solid-button" href={content.cta.href}>

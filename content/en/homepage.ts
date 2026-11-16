@@ -64,7 +64,7 @@ export const enContent: HomepageContent = {
     about: {
       label: 'Z / WHO WE ARE',
       subtitle: '02 / THE WAY WE THINK',
-      manifesto: 'We make the kind of work you point at and say, we did that.',
+      manifesto: 'We make the kind of work you point at and say, *we did that*.',
       body: 'Zoolkr is a creative studio. We build websites, shoot photography, and produce video. We also run a content creator agency for brands that need a real voice on social.',
       muted: 'We work the way a small team works. One project at a time. One decision at a time. No handoff between departments that have never met each other.',
       caption: 'Zoolkr studio',
@@ -73,7 +73,7 @@ export const enContent: HomepageContent = {
     expertise: {
       label: 'Z / OUR EXPERTISE',
       subtitle: '03 / WHAT WE DO',
-      title: 'What we do well.',
+      title: 'What we do *well*.',
       intro: 'We work across three practices. Each one is staffed by people who do that thing every day.',
       note: 'We take on a limited number of projects each quarter, so the work stays good.',
       cta: { label: 'Start a project', href: 'mailto:hello@zoolkr.com' },
@@ -107,7 +107,7 @@ export const enContent: HomepageContent = {
     work: {
       label: 'Z / SELECTED WORK',
       subtitle: '04 / CASE STUDIES',
-      title: 'Selected work',
+      title: '*Selected* work',
       intro:
         'A few projects we are proud of. Each one started with a brief and ended with something that still works.',
       filters: [{ label: 'All work', count: '00' }],
@@ -126,7 +126,7 @@ export const enContent: HomepageContent = {
     faq: {
       label: 'Z / GOOD QUESTIONS',
       subtitle: '05 / QUESTIONS',
-      title: 'Good questions',
+      title: '*Good* questions',
       items: [
         {
           question: 'How much does a website project cost?',

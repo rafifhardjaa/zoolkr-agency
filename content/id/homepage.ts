@@ -64,7 +64,7 @@ export const idContent: HomepageContent = {
     about: {
       label: 'Z / SIAPA KAMI',
       subtitle: '02 / CARA KAMI BERPIKIR',
-      manifesto: 'Karya yang kami buat, Anda bilang: kita buat ini.',
+      manifesto: 'Karya yang kami buat, Anda bilang: *kita buat ini*.',
       body: 'Zoolkr adalah studio kreatif. Kami membangun website, memotret foto, dan memproduksi video. Kami juga menjalankan agency konten kreator untuk brand yang butuh suara asli di media sosial.',
       muted: 'Kami bekerja seperti tim kecil: satu proyek dalam satu waktu, satu keputusan dalam satu waktu, tanpa penyerahan antar departemen yang saling tidak mengenal.',
       caption: 'Studio Zoolkr',
@@ -73,7 +73,7 @@ export const idContent: HomepageContent = {
     expertise: {
       label: 'Z / KEAHLIAN KAMI',
       subtitle: '03 / YANG KAMI LAKUKAN',
-      title: 'Yang kami lakukan dengan baik.',
+      title: 'Yang kami lakukan *dengan baik*.',
       intro: 'Kami bekerja dalam tiga praktik. Masing-masing diisi oleh orang yang melakukan hal itu setiap hari.',
       note: 'Kami menerima jumlah proyek terbatas setiap kuartal, sehingga karya tetap baik.',
       cta: { label: 'Mulai proyek', href: 'mailto:hello@zoolkr.com' },
@@ -107,7 +107,7 @@ export const idContent: HomepageContent = {
     work: {
       label: 'Z / KARYA PILIHAN',
       subtitle: '04 / STUDI KASUS',
-      title: 'Karya pilihan',
+      title: 'Karya *pilihan*',
       intro:
         'Beberapa proyek yang kami banggakan. Masing-masing dimulai dari brief dan berakhir pada sesuatu yang masih bekerja.',
       filters: [{ label: 'Semua karya', count: '00' }],
@@ -126,7 +126,7 @@ export const idContent: HomepageContent = {
     faq: {
       label: 'Z / PERTANYAAN UMUM',
       subtitle: '05 / PERTANYAAN',
-      title: 'Pertanyaan Baik',
+      title: 'Pertanyaan *Baik*',
       items: [
         {
           question: 'Berapa biaya sebuah proyek website?',

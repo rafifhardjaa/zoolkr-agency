@@ -4,6 +4,7 @@ import { useState } from 'react'
 import type { HomepageContent } from '@/content/types'
 import { SectionMeta } from '@/components/ui/SectionMeta'
 import { RevealText } from '@/components/ui/RevealText'
+import { Accent } from '@/components/ui/Accent'
 
 interface FaqSectionProps {
   content: HomepageContent['sections']['faq']
@@ -27,7 +28,7 @@ export function FaqSection({ content, hideTitle = false }: FaqSectionProps) {
         <SectionMeta label={content.label} subtitle={content.subtitle} />
         {hideTitle ? null : (
           <RevealText as="h2" className="section-title">
-            {content.title}
+            <Accent text={content.title} />
           </RevealText>
         )}
       </div>
