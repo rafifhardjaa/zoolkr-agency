@@ -37,3 +37,7 @@ next-env.d.ts
 /.agent-logs/
 /.commandcode/
 /.playwright-mcp/
+
+# local working notes and design references
+/guide/
+/reference/
