@@ -48,7 +48,7 @@ export const enContent: HomepageContent = {
     intro: 'A studio for brands that want to be looked at twice.',
     cta: {
       label: 'Start a project',
-      href: 'mailto:hello@zoolkr.com',
+      href: '/en/kontak',
     },
     foot: {
       left: 'CREATIVE WORK, MADE ON PURPOSE.',
@@ -85,7 +85,7 @@ export const enContent: HomepageContent = {
       title: 'What we do *well*.',
       intro: 'We work across three practices. Each one is staffed by people who do that thing every day.',
       note: 'We take on a limited number of projects each quarter, so the work stays good.',
-      cta: { label: 'Start a project', href: 'mailto:hello@zoolkr.com' },
+      cta: { label: 'Start a project', href: '/en/kontak' },
       services: [
         {
           number: '01',
@@ -207,7 +207,7 @@ export const enContent: HomepageContent = {
     },
     footer: {
       kicker: 'Have a project in mind?',
-      cta: { label: "Let's talk", href: 'mailto:hello@zoolkr.com' },
+      cta: { label: "Let's talk", href: '/en/kontak' },
       email: 'hello@zoolkr.com',
       place: 'Semarang, Indonesia',
       topLabel: 'Back to top',

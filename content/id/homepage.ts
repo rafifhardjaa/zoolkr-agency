@@ -48,7 +48,7 @@ export const idContent: HomepageContent = {
     intro: 'Studio untuk brand yang ingin dilihat dua kali.',
     cta: {
       label: 'Mulai proyek',
-      href: 'mailto:hello@zoolkr.com',
+      href: '/id/kontak',
     },
     foot: {
       left: 'KARYA YANG DIBUAT DENGAN SENGAJA.',
@@ -85,7 +85,7 @@ export const idContent: HomepageContent = {
       title: 'Yang kami lakukan *dengan baik*.',
       intro: 'Kami bekerja dalam tiga praktik. Masing-masing diisi oleh orang yang melakukan hal itu setiap hari.',
       note: 'Kami menerima jumlah proyek terbatas setiap kuartal, sehingga karya tetap baik.',
-      cta: { label: 'Mulai proyek', href: 'mailto:hello@zoolkr.com' },
+      cta: { label: 'Mulai proyek', href: '/id/kontak' },
       services: [
         {
           number: '01',
@@ -207,7 +207,7 @@ export const idContent: HomepageContent = {
     },
     footer: {
       kicker: 'Punya proyek dalam pikiran?',
-      cta: { label: 'Ngobrol dulu', href: 'mailto:hello@zoolkr.com' },
+      cta: { label: 'Ngobrol dulu', href: '/id/kontak' },
       email: 'hello@zoolkr.com',
       place: 'Semarang, Indonesia',
       topLabel: 'Kembali ke atas',
