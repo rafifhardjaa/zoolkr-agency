@@ -71,7 +71,11 @@ export function NavBar({ locale, content }: NavBarProps) {
         {content.links.length > 0 ? (
           <nav className="nav-links" aria-label={content.primaryLabel}>
             {content.links.map((link) => (
-              <Link key={link.href} href={link.href}>
+              <Link
+                key={link.href}
+                href={link.href}
+                aria-current={pathname === link.href ? 'page' : undefined}
+              >
                 <span>{link.label}</span>
                 <span aria-hidden="true">{link.label}</span>
               </Link>
