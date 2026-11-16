@@ -20,8 +20,19 @@ export function WorkSection({ content }: WorkSectionProps) {
       <div className="work-list">
         {content.cases.map((item) => (
           <article className="work-card" key={item.number}>
-            <div className="case-media-placeholder" aria-hidden="true">
-              [CASE IMAGE PLACEHOLDER]
+            <div className="case-media">
+              <a
+                className="case-link"
+                href={content.viewHref}
+                aria-label={`${content.viewLabel}: ${item.title}`}
+              >
+                <div className="case-media-placeholder" aria-hidden="true">
+                  [CASE IMAGE PLACEHOLDER]
+                </div>
+                <span className="case-view" aria-hidden="true">
+                  {content.viewLabel}
+                </span>
+              </a>
             </div>
             <div className="case-info">
               <span className="case-num">{item.number} /</span>

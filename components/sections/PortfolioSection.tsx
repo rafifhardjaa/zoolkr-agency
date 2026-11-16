@@ -25,8 +25,10 @@ export function PortfolioSection({
       </div>
       <div className="work-list">
         <article className="work-card">
-          <div className="case-media-placeholder" aria-hidden="true">
-            [IMAGE PLACEHOLDER]
+          <div className="case-media">
+            <div className="case-media-placeholder" aria-hidden="true">
+              [IMAGE PLACEHOLDER]
+            </div>
           </div>
           <div className="case-info">
             <span className="case-num">{placeholderCase.number} /</span>

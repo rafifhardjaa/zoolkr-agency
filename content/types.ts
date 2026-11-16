@@ -115,6 +115,7 @@ export interface HomepageContent {
       title: string
       intro: string
       viewLabel: string
+      viewHref: string
       filters: { label: string; count: string }[]
       cases: CaseItem[]
     }

@@ -119,6 +119,7 @@ export const idContent: HomepageContent = {
       intro:
         'Beberapa proyek yang kami banggakan. Masing-masing dimulai dari brief dan berakhir pada sesuatu yang masih bekerja.',
       viewLabel: 'LIHAT STUDI',
+      viewHref: '/id/portofolio',
       filters: [{ label: 'Semua karya', count: '00' }],
       cases: [
         {

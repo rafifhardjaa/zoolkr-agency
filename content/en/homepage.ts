@@ -119,6 +119,7 @@ export const enContent: HomepageContent = {
       intro:
         'A few projects we are proud of. Each one started with a brief and ended with something that still works.',
       viewLabel: 'VIEW CASE',
+      viewHref: '/en/portofolio',
       filters: [{ label: 'All work', count: '00' }],
       cases: [
         {
