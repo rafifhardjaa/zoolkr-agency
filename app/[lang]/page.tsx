@@ -1,5 +1,6 @@
 import { notFound } from 'next/navigation'
 import { HeroSection } from '@/components/sections/HeroSection'
+import { Ticker } from '@/components/sections/Ticker'
 import { ClientsMarquee } from '@/components/sections/ClientsMarquee'
 import { AboutSection } from '@/components/sections/AboutSection'
 import { ExpertiseSection } from '@/components/sections/ExpertiseSection'
@@ -20,6 +21,7 @@ export default async function HomePage({ params }: HomePageProps) {
   return (
     <main id="main">
       <HeroSection content={content.hero} />
+      <Ticker text={content.ticker} />
       <ClientsMarquee content={content.sections.clients} />
       <AboutSection content={content.sections.about} />
       <ExpertiseSection content={content.sections.expertise} />
