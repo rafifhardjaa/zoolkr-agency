@@ -15,7 +15,7 @@
   --color-green: #22c55e;
   --font-display: var(--font-jost), ui-sans-serif, system-ui, sans-serif;
   --font-mono: var(--font-plex-mono), ui-monospace, "SF Mono", monospace;
-  --text-hero: clamp(44px, 5.4vw, 104px);
+  --text-hero: clamp(40px, 4.6vw, 84px);
   --pad: clamp(24px, 3.4vw, 72px);
   --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
   --ease-out-smooth: cubic-bezier(0.2, 0.7, 0.2, 1);
@@ -145,8 +145,8 @@ body.menu-open {
   font-family: var(--font-display);
   font-size: var(--text-hero);
   letter-spacing: -0.055em;
-  font-weight: 600;
-  line-height: 0.98;
+  font-weight: 400;
+  line-height: 1.02;
 }
 
 .page-lead {
@@ -556,11 +556,11 @@ body.menu-open {
 .hero-title {
   font-family: var(--font-display);
   font-size: var(--text-hero);
-  letter-spacing: -0.06em;
+  letter-spacing: -0.055em;
   text-wrap: balance;
   animation: hero-title-in var(--duration-enter) var(--ease-hero) both;
-  font-weight: 600;
-  line-height: 0.98;
+  font-weight: 400;
+  line-height: 1.02;
 }
 
 .hero-title em {
@@ -746,10 +746,10 @@ html {
 
 .section-title {
   font-family: var(--font-display);
-  letter-spacing: -0.055em;
+  letter-spacing: -0.06em;
   text-wrap: balance;
   font-size: clamp(44px, 6.2vw, 96px);
-  font-weight: 600;
+  font-weight: 400;
   line-height: 0.98;
 }
 
@@ -853,10 +853,10 @@ html {
 .manifesto {
   max-width: 18ch;
   font-family: var(--font-display);
-  letter-spacing: -0.05em;
+  letter-spacing: -0.055em;
   margin-bottom: 48px;
   font-size: clamp(40px, 5vw, 76px);
-  font-weight: 600;
+  font-weight: 400;
   line-height: 1.05;
 }
 
