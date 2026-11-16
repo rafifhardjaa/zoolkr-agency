@@ -12,25 +12,29 @@ export function ExpertiseSection({ content }: ExpertiseSectionProps) {
     <section id="expertise" className="expertise section-pad">
       <div className="expertise-intro">
         <SectionMeta label={content.label} subtitle={content.subtitle} />
-        <RevealText as="h2" className="section-title">
+        <RevealText as="h2" className="section-title" variant="mask">
           <Accent text={content.title} />
         </RevealText>
-        <p>{content.intro}</p>
-        <a className="solid-button" href={content.cta.href}>
-          <span>{content.cta.label}</span>
-          <span aria-hidden="true">+</span>
-        </a>
-        <span className="expertise-note">{content.note}</span>
+        <RevealText as="p" delay={80}>{content.intro}</RevealText>
+        <RevealText as="div" className="reveal-cta" delay={140}>
+          <a className="solid-button" href={content.cta.href}>
+            <span>{content.cta.label}</span>
+            <span aria-hidden="true">+</span>
+          </a>
+        </RevealText>
+        <RevealText as="span" className="expertise-note" delay={200}>
+          {content.note}
+        </RevealText>
       </div>
       <div className="service-list">
-        {content.services.map((service) => (
+        {content.services.map((service, index) => (
           <article className="service" key={service.number}>
-            <div className="service-top">
+            <RevealText as="div" className="service-top" delay={index * 60}>
               <span>{service.number} /</span>
               <span>{service.tag}</span>
-            </div>
-            <RevealText as="h3">{service.title}</RevealText>
-            <div className="service-media">
+            </RevealText>
+            <RevealText as="h3" variant="mask">{service.title}</RevealText>
+            <RevealText as="div" className="service-media" variant="media">
               <img
                 src={service.image.src}
                 alt={service.image.alt}
@@ -39,15 +43,15 @@ export function ExpertiseSection({ content }: ExpertiseSectionProps) {
                 loading="lazy"
                 referrerPolicy="no-referrer"
               />
-            </div>
-            <div className="service-copy">
+            </RevealText>
+            <RevealText as="div" className="service-copy" delay={120} stagger>
               <p>{service.description}</p>
               <div className="tags">
                 {service.tags.map((tag) => (
                   <span key={tag}>{tag}</span>
                 ))}
               </div>
-            </div>
+            </RevealText>
           </article>
         ))}
       </div>

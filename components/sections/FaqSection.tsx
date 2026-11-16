@@ -27,7 +27,7 @@ export function FaqSection({ content, hideTitle = false }: FaqSectionProps) {
       <div>
         <SectionMeta label={content.label} subtitle={content.subtitle} />
         {hideTitle ? null : (
-          <RevealText as="h2" className="section-title">
+          <RevealText as="h2" className="section-title" variant="mask">
             <Accent text={content.title} />
           </RevealText>
         )}
@@ -36,7 +36,12 @@ export function FaqSection({ content, hideTitle = false }: FaqSectionProps) {
         {content.items.map((item, index) => {
           const open = openItems.includes(index)
           return (
-            <div className={`faq-item${open ? ' open' : ''}`} key={item.question}>
+            <RevealText
+              as="div"
+              className={`faq-item${open ? ' open' : ''}`}
+              delay={index * 70}
+              key={item.question}
+            >
               <button
                 type="button"
                 className="faq-question"
@@ -57,7 +62,7 @@ export function FaqSection({ content, hideTitle = false }: FaqSectionProps) {
                   <p>{item.answer}</p>
                 </div>
               </div>
-            </div>
+            </RevealText>
           )
         })}
       </div>

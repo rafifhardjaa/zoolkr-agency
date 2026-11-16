@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import type { HomepageContent } from '@/content/types'
 import { SectionMeta } from '@/components/ui/SectionMeta'
+import { RevealText } from '@/components/ui/RevealText'
 
 interface PortfolioSectionProps {
   content: {
@@ -21,12 +22,14 @@ export function PortfolioSection({
         <div>
           <SectionMeta label={content.title} />
         </div>
-        <span className="portfolio-note">{content.note}</span>
+        <RevealText as="span" className="portfolio-note" delay={80}>
+          {content.note}
+        </RevealText>
       </div>
       <div className="work-list">
-        {cases.map((item) => (
+        {cases.map((item, index) => (
           <article className="work-card" key={item.number}>
-            <div className="case-media">
+            <RevealText as="div" className="case-media" variant="media" delay={index * 90}>
               <img
                 src={item.image.src}
                 alt={item.image.alt}
@@ -35,8 +38,8 @@ export function PortfolioSection({
                 loading="lazy"
                 referrerPolicy="no-referrer"
               />
-            </div>
-            <div className="case-info">
+            </RevealText>
+            <RevealText as="div" className="case-info" delay={index * 90 + 90} stagger>
               <span className="case-num">{item.number} /</span>
               <h2>{item.title}</h2>
               <div>
@@ -44,14 +47,16 @@ export function PortfolioSection({
                 <span className="case-category">{item.category}</span>
               </div>
               <p className="case-desc">{item.description}</p>
-            </div>
+            </RevealText>
           </article>
         ))}
       </div>
-      <Link className="solid-button" href={content.cta.href}>
-        <span>{content.cta.label}</span>
-        <span aria-hidden="true">+</span>
-      </Link>
+      <RevealText as="div" className="work-cta" delay={180}>
+        <Link className="solid-button" href={content.cta.href}>
+          <span>{content.cta.label}</span>
+          <span aria-hidden="true">+</span>
+        </Link>
+      </RevealText>
     </section>
   )
 }

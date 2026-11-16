@@ -12,15 +12,15 @@ export function WorkSection({ content }: WorkSectionProps) {
     <section id="work" className="work section-pad">
       <SectionMeta label={content.label} subtitle={content.subtitle} />
       <div className="work-heading">
-        <RevealText as="h2" className="section-title">
+        <RevealText as="h2" className="section-title" variant="mask">
           <Accent text={content.title} />
         </RevealText>
-        <p>{content.intro}</p>
+        <RevealText as="p" delay={80}>{content.intro}</RevealText>
       </div>
       <div className="work-list">
-        {content.cases.map((item) => (
+        {content.cases.map((item, index) => (
           <article className="work-card" key={item.number}>
-            <div className="case-media">
+            <RevealText as="div" className="case-media" variant="media" delay={index * 90}>
               <a
                 className="case-link"
                 href={content.viewHref}
@@ -38,15 +38,15 @@ export function WorkSection({ content }: WorkSectionProps) {
               <span className="case-view" aria-hidden="true">
                 {content.viewLabel}
               </span>
-            </div>
-            <div className="case-info">
+            </RevealText>
+            <RevealText as="div" className="case-info" delay={index * 90 + 90} stagger>
               <span className="case-num">{item.number} /</span>
               <h3>{item.title}</h3>
               <div>
                 <span className="case-brand">{item.brand}</span>
                 <span className="case-category">{item.category}</span>
               </div>
-            </div>
+            </RevealText>
           </article>
         ))}
       </div>

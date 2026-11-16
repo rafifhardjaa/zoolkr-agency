@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import { RevealText } from '@/components/ui/RevealText'
 import { SectionMeta } from '@/components/ui/SectionMeta'
 
 interface KarirSectionProps {
@@ -14,12 +15,14 @@ export function KarirSection({ content }: KarirSectionProps) {
     <section className="karir section-pad">
       <div className="karir-intro">
         <SectionMeta label={content.title} />
-        <p>{content.body}</p>
+        <RevealText as="p" delay={80}>{content.body}</RevealText>
       </div>
-      <Link className="solid-button" href={content.cta.href}>
-        <span>{content.cta.label}</span>
-        <span aria-hidden="true">+</span>
-      </Link>
+      <RevealText as="div" className="reveal-cta" delay={140}>
+        <Link className="solid-button" href={content.cta.href}>
+          <span>{content.cta.label}</span>
+          <span aria-hidden="true">+</span>
+        </Link>
+      </RevealText>
     </section>
   )
 }

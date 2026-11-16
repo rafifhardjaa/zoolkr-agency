@@ -6,6 +6,8 @@ import { zodResolver } from '@hookform/resolvers/zod'
 import { createContactSchema } from '@/lib/contact'
 import type { ContactInput } from '@/lib/contact'
 import type { ContactContent } from '@/content/types'
+import { useReducedMotion } from '@/hooks/useReducedMotion'
+import { useScrollReveal } from '@/hooks/useScrollReveal'
 
 interface ContactFormProps {
   form: ContactContent['form']
@@ -16,6 +18,10 @@ type FormStatus = { kind: 'success' | 'error'; title: string; body: string } | n
 export function ContactForm({ form }: ContactFormProps) {
   const [status, setStatus] = useState<FormStatus>(null)
   const schema = useMemo(() => createContactSchema(form.messages), [form.messages])
+  const prefersReducedMotion = useReducedMotion()
+  // Fields ride the same scroll progress as the rest of the page instead of
+  // playing once on mount, while the form sits below the fold.
+  const formRef = useScrollReveal<HTMLFormElement>({ enabled: !prefersReducedMotion })
 
   const {
     register,
@@ -49,7 +55,12 @@ export function ContactForm({ form }: ContactFormProps) {
   }
 
   return (
-    <form className="contact-form" onSubmit={handleSubmit(onSubmit)} noValidate>
+    <form
+      className="contact-form reveal-stagger"
+      onSubmit={handleSubmit(onSubmit)}
+      noValidate
+      ref={formRef}
+    >
       <div className="contact-field">
         <label className="contact-label" htmlFor="contact-name">
           {form.nameLabel}

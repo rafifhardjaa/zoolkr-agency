@@ -11,11 +11,11 @@ export function AboutSection({ content }: AboutSectionProps) {
   return (
     <section id="about" className="about section-pad">
       <SectionMeta label={content.label} subtitle={content.subtitle} />
-      <RevealText as="h2" className="manifesto">
+      <RevealText as="h2" className="manifesto" variant="mask">
         <Accent text={content.manifesto} />
       </RevealText>
       <div className="about-bottom">
-        <RevealText as="div" className="about-photo">
+        <RevealText as="div" className="about-photo" variant="media">
           <img
             src={'https://images.unsplash.com/photo-1497215728101-856f4ea42174?auto=format&fit=crop&w=1600&q=80&fm=webp'}
             alt={content.caption}
@@ -25,7 +25,7 @@ export function AboutSection({ content }: AboutSectionProps) {
             referrerPolicy="no-referrer"
           />
         </RevealText>
-        <RevealText as="div" className="about-copy">
+        <RevealText as="div" className="about-copy" delay={120} stagger>
           <p>{content.body}</p>
           <p className="muted">{content.muted}</p>
           <a className="text-link" href={content.cta.href}>

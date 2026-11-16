@@ -18,19 +18,21 @@ export function ContactSection({ content }: ContactSectionProps) {
             {content.intro}
           </RevealText>
 
-          <div className="contact-direct">
+          <RevealText as="div" className="contact-direct" delay={80}>
             <span className="contact-kicker">{content.directEmailLabel}</span>
             <a className="contact-mail" href={`mailto:${content.email}`}>
               {content.email}
             </a>
-          </div>
+          </RevealText>
 
-          <div className="contact-direct">
+          <RevealText as="div" className="contact-direct" delay={150}>
             <span className="contact-kicker">{content.directPlaceLabel}</span>
             <p className="contact-place">{content.place}</p>
-          </div>
+          </RevealText>
 
-          <p className="contact-privacy">{content.privacy}</p>
+          <RevealText as="p" className="contact-privacy" delay={220}>
+            {content.privacy}
+          </RevealText>
         </div>
 
         <ContactForm form={content.form} />

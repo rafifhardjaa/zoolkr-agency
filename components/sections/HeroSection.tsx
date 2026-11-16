@@ -36,9 +36,16 @@ export function HeroSection({ content }: HeroSectionProps) {
           </span>
         </p>
 
-        <div className="hero-wordmark" aria-hidden="true">
-          zoolkr
-        </div>
+        <svg
+          className="hero-wordmark"
+          viewBox="0 0 1000 230"
+          aria-hidden="true"
+          focusable="false"
+        >
+          <text x="0" y="216" textLength="1000" lengthAdjust="spacingAndGlyphs">
+            zoolkr
+          </text>
+        </svg>
 
         <div className="hero-bottom">
           <div>

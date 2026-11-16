@@ -1,3 +1,7 @@
+'use client'
+
+import { RevealText } from '@/components/ui/RevealText'
+
 interface SectionMetaProps {
   label: string
   subtitle?: string
@@ -5,7 +9,7 @@ interface SectionMetaProps {
 
 export function SectionMeta({ label, subtitle }: SectionMetaProps) {
   return (
-    <div className="section-meta">
+    <RevealText as="div" className="section-meta" stagger>
       <span>
         <b className="section-mark" aria-hidden="true">
           ✱
@@ -13,6 +17,6 @@ export function SectionMeta({ label, subtitle }: SectionMetaProps) {
         {label}
       </span>
       {subtitle ? <span>{subtitle}</span> : null}
-    </div>
+    </RevealText>
   )
 }
