@@ -57,6 +57,7 @@ export const idContent: HomepageContent = {
     videoLabel: 'Cahaya marun abstrak yang melipat di atas latar gelap',
   },
   ticker: 'KARYA YANG DIBUAT DENGAN SENGAJA',
+  railLabel: 'Bagian halaman',
   rail: [
     { id: 'hero', label: '01 / HERO' },
     { id: 'about', label: '02 / TENTANG' },

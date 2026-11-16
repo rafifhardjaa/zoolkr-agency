@@ -92,6 +92,7 @@ export interface HomepageContent {
   }
   ticker: string
   rail: RailItem[]
+  railLabel: string
   sections: {
     clients: {
       label: string

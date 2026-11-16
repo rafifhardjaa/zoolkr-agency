@@ -1279,6 +1279,53 @@ html {
   padding: 0 0 24px 44px;
 }
 
+/* Section rail: desktop-only scrollspy, a functional state marker rather than
+   decoration, so it hides on narrow screens and coarse pointers. */
+.section-rail {
+  z-index: 40;
+  flex-direction: column;
+  gap: 6px;
+  display: flex;
+  position: fixed;
+  top: 50%;
+  right: clamp(12px, 1.6vw, 32px);
+  transform: translateY(-50%);
+}
+
+.section-rail button {
+  font-family: var(--font-mono);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-muted-text);
+  transition: color var(--duration-fast) var(--ease-out-smooth);
+  background: none;
+  border: 0;
+  border-left: 2px solid transparent;
+  padding: 6px 6px 6px 10px;
+  font-size: 11px;
+  text-align: left;
+}
+
+.section-rail button:hover {
+  color: var(--color-ink);
+}
+
+.section-rail button[aria-current='true'] {
+  color: var(--color-accent);
+  border-left-color: var(--color-accent);
+}
+
+.section-rail button:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+}
+
+@media (max-width: 1023px), (pointer: coarse) {
+  .section-rail {
+    display: none;
+  }
+}
+
 /* Footer */
 .footer-cta {
   padding: clamp(72px, 12vh, 160px) var(--pad);

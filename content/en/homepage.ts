@@ -57,6 +57,7 @@ export const enContent: HomepageContent = {
     videoLabel: 'Abstract maroon light folding across a dark background',
   },
   ticker: 'CREATIVE WORK, MADE ON PURPOSE',
+  railLabel: 'Page sections',
   rail: [
     { id: 'hero', label: '01 / HERO' },
     { id: 'about', label: '02 / ABOUT' },
