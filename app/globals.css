@@ -1096,46 +1096,82 @@ html {
   display: flex;
 }
 
-.faq-list details {
+.faq-list .faq-item {
   border-top: 1px solid var(--color-line);
 }
 
-.faq-list details:last-child {
+.faq-list .faq-item:last-child {
   border-bottom: 1px solid var(--color-line);
 }
 
-.faq-list summary {
+.faq-question {
   align-items: center;
+  width: 100%;
   gap: 20px;
   padding: 20px 0;
   font-size: 17px;
-  list-style: none;
+  text-align: left;
   display: flex;
+  background: none;
+  border: none;
+  font: inherit;
+  transition: color var(--duration-fast) var(--ease-out-smooth);
 }
 
-.faq-list summary::-webkit-details-marker {
-  display: none;
+.faq-question:hover {
+  color: var(--color-accent);
 }
 
-.faq-list summary span {
+.faq-question:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 4px;
+}
+
+.faq-question span {
   font-family: var(--font-mono);
   letter-spacing: 0.08em;
   color: var(--color-muted-text);
   font-size: 11px;
+  transition: color var(--duration-fast) var(--ease-out-smooth);
 }
 
-.faq-list summary i {
-  transition: transform var(--duration-normal) var(--ease-out-smooth);
+.faq-question i {
+  transition:
+    transform var(--duration-normal) var(--ease-out-smooth),
+    color var(--duration-fast) var(--ease-out-smooth);
   margin-left: auto;
   font-size: 20px;
   font-style: normal;
 }
 
-.faq-list details[open] summary i {
+.faq-question:hover span,
+.faq-question:hover i,
+.faq-item.open .faq-question span,
+.faq-item.open .faq-question i {
+  color: var(--color-accent);
+}
+
+.faq-item.open .faq-question i {
   transform: rotate(45deg);
 }
 
-.faq-list details p {
+/* The panel animates its grid track so the page height eases instead of jumping. */
+.faq-panel {
+  grid-template-rows: 0fr;
+  display: grid;
+  transition: grid-template-rows var(--duration-normal) var(--ease-out-smooth);
+}
+
+.faq-item.open .faq-panel {
+  grid-template-rows: 1fr;
+}
+
+.faq-panel-inner {
+  overflow: hidden;
+  min-height: 0;
+}
+
+.faq-panel-inner p {
   max-width: 60ch;
   color: var(--color-muted-text);
   padding: 0 0 24px 44px;
