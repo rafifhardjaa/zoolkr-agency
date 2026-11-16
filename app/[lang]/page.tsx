@@ -20,7 +20,7 @@ export default async function HomePage({ params }: HomePageProps) {
   const content = getHomepageContent(lang)
 
   return (
-    <main id="main">
+    <main id="main" className="home">
       <HeroSection content={content.hero} />
       <Ticker text={content.ticker} />
       <SectionRail sections={content.rail} label={content.railLabel} />

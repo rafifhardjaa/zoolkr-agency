@@ -46,6 +46,16 @@ button:disabled,
   cursor: not-allowed;
 }
 
+:focus-visible {
+  outline: 2px solid var(--color-crimson);
+  outline-offset: 3px;
+}
+
+::selection {
+  color: var(--color-paper);
+  background: var(--color-crimson);
+}
+
 /* Scroll progress bar */
 .scroll-progress {
   z-index: 60;
@@ -136,24 +146,71 @@ body.menu-open {
   background: var(--color-paper);
 }
 
+/* Each route owns its <main>, so the entrance replays on navigation. Opacity
+   only: a transform here would trap the fixed section rail. */
+#main {
+  animation: page-in 0.55s var(--ease-out-smooth) both;
+}
+
+/* Inner-page cover. The short routes (contact, FAQ, careers) had no scroll
+   runway, so every reveal landed before the reader moved. The head now fills
+   the first screen and holds its type against the bottom rule. */
 .page-head {
   max-width: 80rem;
   margin: 0 auto;
+  padding-bottom: clamp(24px, 3vh, 40px);
+  min-height: clamp(280px, 48svh, 420px);
+  display: grid;
+  grid-template-rows: auto 1fr;
+  row-gap: 24px;
 }
 
 .page-title {
   font-family: var(--font-display);
-  font-size: var(--text-hero);
-  letter-spacing: -0.055em;
+  font-size: clamp(48px, 9vw, 124px);
+  letter-spacing: -0.06em;
   font-weight: 400;
-  line-height: 1.02;
+  line-height: 0.94;
+  animation: title-in 0.9s var(--ease-out-expo) 0.06s both;
 }
 
 .page-lead {
   max-width: 44ch;
   color: var(--color-muted-text);
   margin-top: 20px;
+  align-self: end;
   font-size: 17px;
+  animation: fade-in 0.8s var(--ease-out-smooth) 0.22s both;
+}
+
+@media (min-width: 900px) {
+  .page-head {
+    min-height: clamp(420px, calc(100svh - 240px), 720px);
+    grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr);
+    grid-template-rows: auto 1fr;
+    column-gap: clamp(32px, 5vw, 88px);
+    padding-bottom: 0;
+  }
+
+  /* Column rule marking the deck column; it reads as structure, not texture. */
+  .page-head::after {
+    content: "";
+    border-left: 1px solid var(--color-line);
+    grid-area: 1 / 2 / -1 / 3;
+    justify-self: start;
+  }
+
+  .page-title {
+    grid-area: 1 / 1;
+  }
+
+  .page-lead {
+    max-width: none;
+    margin: 0;
+    padding-left: clamp(20px, 2vw, 32px);
+    padding-bottom: clamp(24px, 3vh, 40px);
+    grid-area: 2 / 2;
+  }
 }
 
 /* Brand */
@@ -199,6 +256,15 @@ body.menu-open {
 .nav-links a:hover span,
 .nav-links a:focus-visible span {
   transform: translateY(-100%);
+}
+
+.nav-links a[aria-current='page'] span {
+  color: var(--color-rose);
+}
+
+.nav.is-stuck .nav-links a[aria-current='page'] span,
+.nav.nav--solid .nav-links a[aria-current='page'] span {
+  color: var(--color-accent);
 }
 
 /* Nav actions */
@@ -381,6 +447,26 @@ body.menu-open {
   color: var(--color-rose);
 }
 
+.menu-dialog[open] .menu-nav a {
+  animation: fade-up 0.65s var(--ease-out-expo) both;
+}
+
+.menu-dialog[open] .menu-nav a:nth-child(1) {
+  animation-delay: 0.12s;
+}
+.menu-dialog[open] .menu-nav a:nth-child(2) {
+  animation-delay: 0.18s;
+}
+.menu-dialog[open] .menu-nav a:nth-child(3) {
+  animation-delay: 0.24s;
+}
+.menu-dialog[open] .menu-nav a:nth-child(4) {
+  animation-delay: 0.3s;
+}
+.menu-dialog[open] .menu-nav a:nth-child(5) {
+  animation-delay: 0.36s;
+}
+
 .menu-nav small {
   font-size: 11px;
 }
@@ -494,25 +580,25 @@ body.menu-open {
 
 .hero-wordmark {
   z-index: 3;
-  font-family: var(--font-display);
-  letter-spacing: -0.055em;
-  text-align: center;
-  white-space: nowrap;
+  width: 100%;
+  height: auto;
   pointer-events: none;
   user-select: none;
-  color: transparent;
+  display: block;
+  fill: #f6f6f2;
   mix-blend-mode: overlay;
-  opacity: 0.95;
-  background: linear-gradient(#fff, #ff9db0);
-  -webkit-background-clip: text;
-  background-clip: text;
-  font-size: clamp(120px, 27vw, 380px);
-  font-weight: 500;
-  line-height: 0.86;
+  opacity: 0.96;
+  animation: wordmark-in 1.6s var(--ease-out-expo) 0.08s both;
   position: absolute;
-  top: 17vh;
+  top: 9vh;
   left: 0;
-  right: 0;
+  width: 100%;
+}
+
+.hero-wordmark text {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: 252px;
 }
 
 .hero-topline {
@@ -551,6 +637,7 @@ body.menu-open {
   margin-bottom: 18px;
   font-size: 11px;
   font-weight: 500;
+  animation: fade-up 0.9s var(--ease-out-smooth) 0.35s both;
 }
 
 .hero-title {
@@ -577,6 +664,7 @@ body.menu-open {
   width: 100%;
   max-width: 34ch;
   padding-left: 8px;
+  animation: fade-up 1s var(--ease-out-smooth) 0.5s both;
 }
 
 .hero-intro p {
@@ -638,6 +726,7 @@ body.menu-open {
   padding: 16px 0 20px;
   font-size: 10px;
   display: flex;
+  animation: fade-in 1s var(--ease-out-smooth) 0.9s both;
   position: absolute;
 }
 
@@ -695,21 +784,67 @@ body.menu-open {
   opacity: 1;
 }
 
-/* Reveal animation */
-.reveal {
-  opacity: 0;
-  filter: blur(3px);
-  transition:
-    opacity var(--duration-slow) var(--ease-out-smooth),
-    transform var(--duration-slow) var(--ease-out-smooth),
-    filter var(--duration-slow) var(--ease-out-smooth);
-  transform: translateY(28px);
+/* Reveal animation — scroll-linked.
+   The hook writes 0–1 progress to --reveal-p every frame, so a reveal follows
+   the scroll position in both directions instead of snapping on a fixed
+   transition. Without the attribute (no JS) the content stays visible. */
+.reveal[data-reveal] {
+  --rp: min(1, max(0, var(--reveal-p, 0)));
+  opacity: var(--rp);
+  filter: blur(calc(3px * (1 - var(--rp))));
+  transform: translateY(calc((1 - var(--rp)) * 28px));
 }
 
-.reveal.is-visible {
-  opacity: 1;
-  filter: none;
-  transform: none;
+/* Heading mask: the line rises behind a clipped edge. The padding/negative
+   margin pair keeps descenders from being cut by the overflow. */
+.reveal-mask[data-reveal] {
+  overflow: hidden;
+  padding-bottom: 0.14em;
+  margin-bottom: -0.14em;
+}
+
+.reveal-mask[data-reveal] .reveal-mask-inner {
+  --rp: min(1, max(0, var(--reveal-p, 0)));
+  display: block;
+  will-change: transform;
+  transform: translateY(calc((1 - var(--rp)) * 112%));
+}
+
+/* Media curtain: the frame opens, the image settles from a slight crop. The
+   clip lives on the image so the observed wrapper keeps a measurable box. */
+.reveal-media[data-reveal] img {
+  --rp: min(1, max(0, var(--reveal-p, 0)));
+  clip-path: inset(0 0 calc((1 - var(--rp)) * 100%) 0);
+  transform: translateY(calc((1 - var(--rp)) * 12%))
+    scale(calc(1.02 + (1 - var(--rp)) * 0.07));
+}
+
+/* Staggered group: the wrapper stays put while each child lags the group
+   progress by a fraction, so the group fans in and out with the scroll. */
+.reveal-stagger[data-reveal] > * {
+  --stagger: 0;
+  --cp: min(1, max(0, calc((var(--reveal-p, 0) - var(--stagger)) / 0.82)));
+  opacity: var(--cp);
+  transform: translateY(calc((1 - var(--cp)) * 18px));
+}
+
+.reveal-stagger[data-reveal] > :nth-child(2) {
+  --stagger: 0.1;
+}
+.reveal-stagger[data-reveal] > :nth-child(3) {
+  --stagger: 0.2;
+}
+.reveal-stagger[data-reveal] > :nth-child(4) {
+  --stagger: 0.3;
+}
+.reveal-stagger[data-reveal] > :nth-child(5) {
+  --stagger: 0.4;
+}
+.reveal-stagger[data-reveal] > :nth-child(6) {
+  --stagger: 0.5;
+}
+.reveal-stagger[data-reveal] > :nth-child(7) {
+  --stagger: 0.6;
 }
 
 /* HTML scroll behavior */
@@ -728,10 +863,12 @@ html {
   letter-spacing: 0.04em;
   text-transform: uppercase;
   color: var(--color-muted-text);
+  border-top: 1px solid var(--color-line);
   justify-content: space-between;
   align-items: baseline;
   gap: 16px;
   margin-bottom: 40px;
+  padding-top: 12px;
   font-size: 11px;
   display: flex;
 }
@@ -887,6 +1024,13 @@ html {
   height: 100%;
   object-fit: cover;
   display: block;
+  transition: transform 1s var(--ease-out-expo);
+}
+
+.work-card:hover .case-media img,
+.work-card:focus-within .case-media img,
+.about-photo:hover img {
+  transform: scale(1.04);
 }
 
 .case-link {
@@ -1032,6 +1176,10 @@ html {
   display: flex;
 }
 
+.service {
+  position: relative;
+}
+
 .service h2,
 .service h3 {
   font-family: var(--font-display);
@@ -1040,6 +1188,19 @@ html {
   font-size: clamp(36px, 4.5vw, 64px);
   font-weight: 400;
   line-height: 1.02;
+  transition:
+    color var(--duration-normal) var(--ease-out-smooth),
+    transform 0.5s var(--ease-out-expo);
+}
+
+.service:hover h2,
+.service:hover h3 {
+  color: var(--color-accent);
+  transform: translateX(10px);
+}
+
+.service:hover .service-media img {
+  transform: scale(1.035);
 }
 
 .service-top {
@@ -1053,6 +1214,33 @@ html {
   padding-bottom: 12px;
   font-size: 11px;
   display: flex;
+  isolation: isolate;
+  position: relative;
+  transition:
+    color var(--duration-normal) var(--ease-out-smooth),
+    border-color var(--duration-normal) var(--ease-out-smooth);
+}
+
+.service-top::before {
+  content: "";
+  z-index: -1;
+  background: var(--color-ink);
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform var(--duration-normal) var(--ease-out-smooth);
+  position: absolute;
+  inset: -8px -12px 4px;
+}
+
+.service:hover .service-top,
+.service:focus-within .service-top {
+  color: var(--color-paper);
+  border-bottom-color: transparent;
+}
+
+.service:hover .service-top::before,
+.service:focus-within .service-top::before {
+  transform: scaleX(1);
 }
 
 .service-copy {
@@ -1089,7 +1277,7 @@ html {
   letter-spacing: 0.1em;
   color: var(--color-paper);
   background: var(--color-ink);
-  transition: background-color var(--duration-fast) var(--ease-out-smooth);
+  transition: color var(--duration-fast) var(--ease-out-smooth);
   align-items: center;
   gap: 10px;
   padding: 0 16px;
@@ -1097,10 +1285,35 @@ html {
   display: inline-flex;
   font-family: var(--font-mono);
   text-transform: uppercase;
+  isolation: isolate;
+  overflow: hidden;
+  position: relative;
 }
 
-.solid-button:hover {
+/* Accent fills from the left; the plus turns with it. */
+.solid-button::before {
+  content: "";
+  z-index: -1;
   background: var(--color-accent);
+  transition: transform 0.45s var(--ease-out-expo);
+  position: absolute;
+  inset: 0;
+  transform: translateX(-101%);
+}
+
+.solid-button:hover::before,
+.solid-button:focus-visible::before {
+  transform: translateX(0);
+}
+
+.solid-button span:last-child {
+  transition: transform var(--duration-normal) var(--ease-out-smooth);
+  display: inline-block;
+}
+
+.solid-button:hover span:last-child,
+.solid-button:focus-visible span:last-child {
+  transform: rotate(90deg);
 }
 
 /* Work section */
@@ -1123,8 +1336,28 @@ html {
   display: grid;
 }
 
+/* Editorial offset keeps the two-up grid from reading as a card template. */
+@media (min-width: 900px) {
+  .work-list > :nth-child(even) {
+    margin-top: 72px;
+  }
+}
+
 .work > .solid-button {
   margin-top: 56px;
+}
+
+.work-cta {
+  margin-top: 56px;
+  display: flex;
+}
+
+.work-cta .solid-button {
+  margin-top: 0;
+}
+
+.reveal-cta {
+  display: inline-flex;
 }
 
 .work-card {
@@ -1217,20 +1450,43 @@ html {
 
 .faq-question {
   align-items: center;
-  width: 100%;
+  width: calc(100% + 28px);
   gap: 20px;
-  padding: 20px 0;
+  margin-inline: -14px;
+  padding: 20px 14px;
   font-size: 17px;
   text-align: left;
   display: flex;
   background: none;
   border: none;
   font: inherit;
-  transition: color var(--duration-fast) var(--ease-out-smooth);
+  isolation: isolate;
+  position: relative;
+  overflow: hidden;
+  transition: color var(--duration-normal) var(--ease-out-smooth);
 }
 
-.faq-question:hover {
-  color: var(--color-accent);
+/* Brutalist invert: the ink plane wipes across the row instead of fading in,
+   which keeps the hover legible at a glance and matches the hard edges. */
+.faq-question::before {
+  content: "";
+  z-index: -1;
+  background: var(--color-ink);
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform var(--duration-normal) var(--ease-out-smooth);
+  position: absolute;
+  inset: 0;
+}
+
+.faq-question:hover::before,
+.faq-question:focus-visible::before {
+  transform: scaleX(1);
+}
+
+.faq-question:hover,
+.faq-question:focus-visible {
+  color: var(--color-paper);
 }
 
 .faq-question:focus-visible {
@@ -1257,6 +1513,11 @@ html {
 
 .faq-question:hover span,
 .faq-question:hover i,
+.faq-question:focus-visible span,
+.faq-question:focus-visible i {
+  color: var(--color-rose);
+}
+
 .faq-item.open .faq-question span,
 .faq-item.open .faq-question i {
   color: var(--color-accent);
@@ -1295,7 +1556,9 @@ html {
   flex-direction: column;
   gap: 6px;
   width: 112px;
-  transition: opacity var(--duration-fast) var(--ease-out-smooth);
+  transition:
+    opacity var(--duration-normal) var(--ease-out-smooth),
+    visibility 0s;
   display: flex;
   position: fixed;
   top: 50%;
@@ -1344,11 +1607,17 @@ html {
 .section-rail[data-idle='true'] {
   visibility: hidden;
   opacity: 0;
+  transition:
+    opacity var(--duration-fast) var(--ease-out-smooth),
+    visibility 0s var(--duration-fast);
 }
 
-/* Reserve a gutter so no section text slides under the fixed rail. */
+/* Reserve a gutter so no section text slides under the fixed rail. The rail
+   lives on the homepage only, so the gutter follows it: section bodies and the
+   client strip, whose right-aligned note ran under the index. */
 @media (min-width: 1024px) and (pointer: fine) {
-  .section-pad {
+  .home .section-pad,
+  .home .clients {
     padding-right: calc(var(--pad) + 120px);
   }
 }
@@ -1392,6 +1661,23 @@ html {
   color: var(--color-rose);
   font-size: 0.4em;
   font-style: normal;
+  transition: transform 0.45s var(--ease-out-expo);
+  display: inline-block;
+}
+
+.footer-headline:hover i,
+.footer-headline:focus-visible i {
+  transform: rotate(90deg);
+}
+
+.footer-mail,
+.footer-top-link {
+  transition: color var(--duration-fast) var(--ease-out-smooth);
+}
+
+.footer-mail:hover,
+.footer-top-link:hover {
+  color: var(--color-accent);
 }
 
 .footer-base {
@@ -1428,6 +1714,52 @@ html {
 }
 
 /* Keyframes */
+@keyframes page-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes title-in {
+  from {
+    opacity: 0;
+    clip-path: inset(0 0 100% 0);
+    transform: translateY(22px);
+  }
+  to {
+    opacity: 1;
+    clip-path: inset(0);
+    transform: translateY(0);
+  }
+}
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes wordmark-in {
+  from {
+    opacity: 0;
+    letter-spacing: -0.08em;
+    transform: translateY(30px) scale(0.985);
+  }
+  to {
+    opacity: 0.95;
+    letter-spacing: -0.055em;
+    transform: translateY(0) scale(1);
+  }
+}
+
 @keyframes hero-title-in {
   0% {
     opacity: 0;
@@ -1607,9 +1939,26 @@ html {
     height: 100svh;
   }
 
-  .reveal {
+  .reveal[data-reveal],
+  .reveal-mask[data-reveal] .reveal-mask-inner,
+  .reveal-stagger[data-reveal] > * {
     opacity: 1;
     filter: none;
+    transform: none;
+  }
+
+  .reveal-media[data-reveal] img {
+    clip-path: none;
+    transform: none;
+  }
+
+  .reveal-media img,
+  .work-card:hover .case-media img,
+  .work-card:focus-within .case-media img,
+  .about-photo:hover img,
+  .service:hover .service-media img,
+  .service:hover h2,
+  .service:hover h3 {
     transform: none;
   }
 }
@@ -1733,7 +2082,6 @@ html {
 .contact-field {
   margin-bottom: 32px;
 }
-
 .contact-label {
   font-family: var(--font-mono);
   letter-spacing: 0.08em;
