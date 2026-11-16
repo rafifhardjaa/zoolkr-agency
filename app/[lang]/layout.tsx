@@ -11,7 +11,7 @@ import { CursorFollower } from '@/components/layout/CursorFollower'
 
 const jost = Jost({
   subsets: ['latin'],
-  weight: ['400', '500'],
+  weight: ['400', '500', '600', '700'],
   display: 'swap',
   variable: '--font-jost',
 })

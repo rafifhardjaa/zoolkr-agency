@@ -15,7 +15,7 @@
   --color-green: #22c55e;
   --font-display: var(--font-jost), ui-sans-serif, system-ui, sans-serif;
   --font-mono: var(--font-plex-mono), ui-monospace, "SF Mono", monospace;
-  --text-hero: clamp(40px, 4.6vw, 84px);
+  --text-hero: clamp(44px, 5.4vw, 104px);
   --pad: clamp(24px, 3.4vw, 72px);
   --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
   --ease-out-smooth: cubic-bezier(0.2, 0.7, 0.2, 1);
@@ -550,16 +550,17 @@ body.menu-open {
   color: var(--color-rose);
   margin-bottom: 18px;
   font-size: 11px;
+  font-weight: 500;
 }
 
 .hero-title {
   font-family: var(--font-display);
   font-size: var(--text-hero);
-  letter-spacing: -0.055em;
+  letter-spacing: -0.06em;
   text-wrap: balance;
   animation: hero-title-in var(--duration-enter) var(--ease-hero) both;
-  font-weight: 400;
-  line-height: 1.02;
+  font-weight: 600;
+  line-height: 0.98;
 }
 
 .hero-title em {
@@ -579,9 +580,10 @@ body.menu-open {
 }
 
 .hero-intro p {
-  color: #ffffffdb;
+  color: #fffffff2;
   margin-bottom: 20px;
   font-size: 17px;
+  font-weight: 500;
   line-height: 1.5;
 }
 
@@ -744,11 +746,11 @@ html {
 
 .section-title {
   font-family: var(--font-display);
-  letter-spacing: -0.045em;
+  letter-spacing: -0.055em;
   text-wrap: balance;
-  font-size: clamp(40px, 5.5vw, 82px);
-  font-weight: 400;
-  line-height: 1.02;
+  font-size: clamp(44px, 6.2vw, 96px);
+  font-weight: 600;
+  line-height: 0.98;
 }
 
 /* Clients section */
@@ -789,11 +791,11 @@ html {
 .manifesto {
   max-width: 18ch;
   font-family: var(--font-display);
-  letter-spacing: -0.04em;
+  letter-spacing: -0.05em;
   margin-bottom: 48px;
   font-size: clamp(40px, 5vw, 76px);
-  font-weight: 400;
-  line-height: 1.08;
+  font-weight: 600;
+  line-height: 1.05;
 }
 
 /* About section */
