@@ -22,6 +22,11 @@ export interface SectionMetaContent {
   subtitle: string
 }
 
+export interface RailItem {
+  id: string
+  label: string
+}
+
 export interface ServiceItem {
   number: string
   tag: string
@@ -85,6 +90,8 @@ export interface HomepageContent {
     }
     videoLabel: string
   }
+  ticker: string
+  rail: RailItem[]
   sections: {
     clients: {
       label: string
@@ -107,6 +114,7 @@ export interface HomepageContent {
     work: SectionMetaContent & {
       title: string
       intro: string
+      viewLabel: string
       filters: { label: string; count: string }[]
       cases: CaseItem[]
     }

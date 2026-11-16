@@ -56,6 +56,14 @@ export const enContent: HomepageContent = {
     },
     videoLabel: 'Abstract maroon light folding across a dark background',
   },
+  ticker: 'CREATIVE WORK, MADE ON PURPOSE',
+  rail: [
+    { id: 'hero', label: '01 / HERO' },
+    { id: 'about', label: '02 / ABOUT' },
+    { id: 'expertise', label: '03 / EXPERTISE' },
+    { id: 'work', label: '04 / WORK' },
+    { id: 'faq', label: '05 / FAQ' },
+  ],
   sections: {
     clients: {
       label: 'IN GOOD COMPANY',
@@ -110,6 +118,7 @@ export const enContent: HomepageContent = {
       title: '*Selected* work',
       intro:
         'A few projects we are proud of. Each one started with a brief and ended with something that still works.',
+      viewLabel: 'VIEW CASE',
       filters: [{ label: 'All work', count: '00' }],
       cases: [
         {

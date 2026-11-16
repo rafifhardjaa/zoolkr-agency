@@ -56,6 +56,14 @@ export const idContent: HomepageContent = {
     },
     videoLabel: 'Cahaya marun abstrak yang melipat di atas latar gelap',
   },
+  ticker: 'KARYA YANG DIBUAT DENGAN SENGAJA',
+  rail: [
+    { id: 'hero', label: '01 / HERO' },
+    { id: 'about', label: '02 / TENTANG' },
+    { id: 'expertise', label: '03 / KEAHLIAN' },
+    { id: 'work', label: '04 / KARYA' },
+    { id: 'faq', label: '05 / FAQ' },
+  ],
   sections: {
     clients: {
       label: 'IN GOOD COMPANY',
@@ -110,6 +118,7 @@ export const idContent: HomepageContent = {
       title: 'Karya *pilihan*',
       intro:
         'Beberapa proyek yang kami banggakan. Masing-masing dimulai dari brief dan berakhir pada sesuatu yang masih bekerja.',
+      viewLabel: 'LIHAT STUDI',
       filters: [{ label: 'Semua karya', count: '00' }],
       cases: [
         {
