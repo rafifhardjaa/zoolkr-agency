@@ -1,7 +1,7 @@
 export const idKarir = {
   title: 'Karir',
-  lead: 'Kami tidak sedang mengukur pegawai saat ini.',
+  lead: 'Kami sedang tidak membuka lowongan saat ini.',
   body:
     'Jika Anda ingin bekerja sama dengan Zoolkr, kirim catatan dan kami akan menyimpannya.',
-  cta: { label: 'Ngobrol dulu', href: 'mailto:hello@zoolkr.com' },
+  cta: { label: 'Kontak', href: '/id/kontak' },
 }

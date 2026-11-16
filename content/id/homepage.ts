@@ -17,8 +17,8 @@ export const idContent: HomepageContent = {
     languageLabel: 'Bahasa',
     skipLabel: 'Langsung ke konten',
     cta: {
-      label: 'Ngobrol dulu',
-      href: 'mailto:hello@zoolkr.com',
+      label: 'Kontak',
+      href: '/id/kontak',
     },
     menu: {
       openLabel: 'Buka navigasi',

@@ -28,5 +28,5 @@ export const idServices = {
       tags: ['Agency konten', 'Konten sosial', 'Strategi'],
     },
   ],
-  cta: { label: 'Mulai proyek', href: 'mailto:hello@zoolkr.com' },
+  cta: { label: 'Mulai proyek', href: '/id/kontak' },
 }

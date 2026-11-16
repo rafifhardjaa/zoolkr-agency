@@ -28,5 +28,5 @@ export const enServices = {
       tags: ['Creator agency', 'Social content', 'Strategy'],
     },
   ],
-  cta: { label: 'Start a project', href: 'mailto:hello@zoolkr.com' },
+  cta: { label: 'Start a project', href: '/en/kontak' },
 }

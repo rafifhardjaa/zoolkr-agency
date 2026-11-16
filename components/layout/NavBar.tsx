@@ -95,10 +95,10 @@ export function NavBar({ locale, content }: NavBarProps) {
             ))}
           </nav>
 
-          <a className="nav-cta" href={content.cta.href}>
+          <Link className="nav-cta" href={content.cta.href}>
             <span>{content.cta.label}</span>
             <span aria-hidden="true">+</span>
-          </a>
+          </Link>
 
           <button
             className="menu-toggle"
@@ -144,10 +144,10 @@ export function NavBar({ locale, content }: NavBarProps) {
               <span>{link.label}</span>
             </Link>
           ))}
-          <a href={content.cta.href} onClick={closeMenu}>
+          <Link href={content.cta.href} onClick={closeMenu}>
             <small aria-hidden="true">{String(content.links.length + 1).padStart(2, '0')}</small>
             <span>{content.menu.contactLabel}</span>
-          </a>
+          </Link>
         </nav>
 
         <div className="menu-bottom">

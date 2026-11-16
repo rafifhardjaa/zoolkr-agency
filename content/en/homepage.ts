@@ -17,8 +17,8 @@ export const enContent: HomepageContent = {
     languageLabel: 'Language',
     skipLabel: 'Skip to content',
     cta: {
-      label: "Let's talk",
-      href: 'mailto:hello@zoolkr.com',
+      label: 'Contact',
+      href: '/en/kontak',
     },
     menu: {
       openLabel: 'Open navigation',
