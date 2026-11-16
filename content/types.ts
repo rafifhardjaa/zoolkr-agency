@@ -133,3 +133,39 @@ export interface PageScaffold {
 }
 
 export type PageContent = Record<PageKey, PageScaffold>
+
+export interface ContactMessages {
+  nameRequired: string
+  nameMin: string
+  emailRequired: string
+  emailInvalid: string
+  messageRequired: string
+  messageMin: string
+}
+
+export interface ContactContent {
+  title: string
+  lead: string
+  meta: SectionMetaContent
+  intro: string
+  email: string
+  directEmailLabel: string
+  place: string
+  directPlaceLabel: string
+  privacy: string
+  form: {
+    nameLabel: string
+    namePlaceholder: string
+    emailLabel: string
+    emailPlaceholder: string
+    messageLabel: string
+    messagePlaceholder: string
+    submitLabel: string
+    submittingLabel: string
+    successTitle: string
+    successBody: string
+    errorTitle: string
+    errorBody: string
+    messages: ContactMessages
+  }
+}

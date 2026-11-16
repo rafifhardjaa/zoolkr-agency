@@ -1358,3 +1358,176 @@ html {
     display: none;
   }
 }
+
+/* Contact */
+.contact {
+  max-width: 80rem;
+  margin: 0 auto;
+  padding-top: clamp(48px, 8vh, 96px);
+}
+
+.contact-grid {
+  gap: clamp(40px, 6vw, 72px);
+  align-items: start;
+  display: grid;
+}
+
+@media (min-width: 900px) {
+  .contact-grid {
+    grid-template-columns: 1fr 1.35fr;
+    gap: clamp(56px, 8vw, 128px);
+  }
+}
+
+.contact-aside {
+  flex-direction: column;
+  display: flex;
+}
+
+.contact-intro {
+  color: var(--color-muted-text);
+  margin: 0;
+  font-size: 17px;
+  line-height: 1.6;
+}
+
+.contact-direct {
+  margin-top: 40px;
+}
+
+.contact-kicker {
+  font-family: var(--font-mono);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-muted-text);
+  margin-bottom: 12px;
+  font-size: 11px;
+  display: block;
+}
+
+.contact-mail {
+  font-family: var(--font-display);
+  letter-spacing: -0.03em;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 8px;
+  transition: color var(--duration-fast) var(--ease-out-smooth);
+  color: var(--color-ink);
+  text-decoration: underline;
+  font-size: clamp(22px, 3vw, 36px);
+  font-weight: 400;
+  line-height: 1.15;
+}
+
+.contact-mail:hover {
+  color: var(--color-accent);
+}
+
+.contact-place {
+  color: var(--color-ink);
+  margin: 0;
+  font-size: 16px;
+}
+
+.contact-privacy {
+  color: var(--color-muted-text);
+  max-width: 42ch;
+  margin-top: 40px;
+  margin-bottom: 0;
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.contact-form {
+  flex-direction: column;
+  display: flex;
+}
+
+.contact-field {
+  margin-bottom: 32px;
+}
+
+.contact-label {
+  font-family: var(--font-mono);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-muted-text);
+  margin-bottom: 12px;
+  font-size: 11px;
+  display: block;
+}
+
+.contact-input {
+  font-family: var(--font-display);
+  letter-spacing: -0.01em;
+  color: var(--color-ink);
+  background: transparent;
+  border: 0;
+  border-bottom: 1px solid var(--color-ink);
+  border-radius: 0;
+  width: 100%;
+  transition: border-color var(--duration-fast) var(--ease-out-smooth);
+  padding: 10px 0;
+  font-size: clamp(18px, 2vw, 22px);
+  font-weight: 400;
+  display: block;
+}
+
+.contact-input::placeholder {
+  color: var(--color-muted-text);
+  opacity: 0.55;
+}
+
+.contact-input:focus {
+  outline: none;
+}
+
+/* Focus indicator is the underline itself: it turns crimson and thickens
+   (crimson on paper is 4.47:1, above the 3:1 non-text bar). */
+.contact-input:focus-visible {
+  outline: none;
+  border-bottom: 2px solid var(--color-crimson);
+  padding-bottom: 9px;
+}
+
+.contact-input[aria-invalid="true"] {
+  border-bottom-color: var(--color-crimson);
+}
+
+.contact-textarea {
+  min-height: 140px;
+  resize: vertical;
+  line-height: 1.5;
+}
+
+.contact-error {
+  font-family: var(--font-mono);
+  color: var(--color-accent);
+  letter-spacing: 0.02em;
+  margin-top: 10px;
+  margin-bottom: 0;
+  font-size: 11px;
+}
+
+.contact-form .solid-button {
+  align-self: flex-start;
+}
+
+.contact-status {
+  min-height: 24px;
+  margin-top: 20px;
+  font-size: 15px;
+  line-height: 1.5;
+}
+
+.contact-status p {
+  margin: 0;
+}
+
+.contact-status strong {
+  color: var(--color-ink);
+  font-weight: 500;
+}
+
+.contact-status[data-kind="error"] {
+  color: var(--color-accent);
+}
