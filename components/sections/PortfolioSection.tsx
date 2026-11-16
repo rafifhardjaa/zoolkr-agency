@@ -1,11 +1,10 @@
+import Link from 'next/link'
 import type { HomepageContent } from '@/content/types'
-import { RevealText } from '@/components/ui/RevealText'
 import { SectionMeta } from '@/components/ui/SectionMeta'
 
 interface PortfolioSectionProps {
   content: {
     title: string
-    lead: string
     note: string
     cta: { label: string; href: string }
   }
@@ -21,10 +20,6 @@ export function PortfolioSection({
       <div className="work-heading">
         <div>
           <SectionMeta label={content.title} />
-          <RevealText as="h2" className="section-title">
-            {content.title}
-          </RevealText>
-          <p>{content.lead}</p>
         </div>
         <span className="portfolio-note">{content.note}</span>
       </div>
@@ -35,7 +30,7 @@ export function PortfolioSection({
           </div>
           <div className="case-info">
             <span className="case-num">{placeholderCase.number} /</span>
-            <h3>{placeholderCase.title}</h3>
+            <h2>{placeholderCase.title}</h2>
             <div>
               <span className="case-brand">{placeholderCase.brand}</span>
               <span className="case-category">{placeholderCase.category}</span>
@@ -47,10 +42,10 @@ export function PortfolioSection({
           </div>
         </article>
       </div>
-      <a className="solid-button" href={content.cta.href}>
+      <Link className="solid-button" href={content.cta.href}>
         <span>{content.cta.label}</span>
         <span aria-hidden="true">+</span>
-      </a>
+      </Link>
     </section>
   )
 }

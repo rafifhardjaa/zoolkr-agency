@@ -866,12 +866,74 @@ html {
   display: block;
 }
 
+/* Services page (mirrors the expertise section layout) */
+.services {
+  grid-template-columns: 1fr 1.4fr;
+  gap: clamp(40px, 6vw, 96px);
+  display: grid;
+}
+
+.services-intro {
+  top: calc(var(--nav-height) + 24px);
+  align-self: start;
+  position: sticky;
+}
+
+.services-intro p {
+  color: var(--color-muted-text);
+  margin: 24px 0;
+  font-size: 17px;
+}
+
+.services-note {
+  font-family: var(--font-mono);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-muted-text);
+  margin-top: 32px;
+  font-size: 10px;
+  display: block;
+}
+
+/* Portfolio note (matches the expertise/services note) */
+.portfolio-note {
+  font-family: var(--font-mono);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-muted-text);
+  font-size: 10px;
+}
+
+/* Careers page */
+.karir {
+  max-width: 80rem;
+  margin: 0 auto;
+}
+
+.karir-intro {
+  max-width: 64ch;
+}
+
+.karir-intro p {
+  margin-top: 20px;
+  font-size: 17px;
+}
+
+.karir-intro p + p {
+  color: var(--color-muted-text);
+}
+
+.karir .solid-button {
+  margin-top: 40px;
+}
+
 .service-list {
   flex-direction: column;
   gap: 72px;
   display: flex;
 }
 
+.service h2,
 .service h3 {
   font-family: var(--font-display);
   letter-spacing: -0.04em;
@@ -982,6 +1044,7 @@ html {
   font-size: 11px;
 }
 
+.case-info h2,
 .case-info h3 {
   font-family: var(--font-display);
   letter-spacing: -0.02em;
@@ -1189,11 +1252,13 @@ html {
 /* Responsive */
 @media (max-width: 900px) {
   .expertise,
+  .services,
   .faq {
     grid-template-columns: 1fr;
   }
 
-  .expertise-intro {
+  .expertise-intro,
+  .services-intro {
     position: static;
   }
 

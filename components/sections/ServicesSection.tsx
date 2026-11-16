@@ -1,4 +1,4 @@
-import type { HomepageContent } from '@/content/types'
+import Link from 'next/link'
 import { RevealText } from '@/components/ui/RevealText'
 import { SectionMeta } from '@/components/ui/SectionMeta'
 
@@ -23,10 +23,10 @@ export function ServicesSection({ content }: ServicesSectionProps) {
     <section className="services section-pad">
       <div className="services-intro">
         <SectionMeta label={content.title} />
-        <RevealText as="h2" className="section-title">
-          {content.title}
-        </RevealText>
-        <p>{content.lead}</p>
+        <Link className="solid-button" href={content.cta.href}>
+          <span>{content.cta.label}</span>
+          <span aria-hidden="true">+</span>
+        </Link>
         <span className="services-note">{content.intro}</span>
       </div>
       <div className="service-list">
@@ -36,7 +36,7 @@ export function ServicesSection({ content }: ServicesSectionProps) {
               <span>{service.number} /</span>
               <span>{service.tag}</span>
             </div>
-            <RevealText as="h3">{service.title}</RevealText>
+            <RevealText as="h2">{service.title}</RevealText>
             <div className="service-media-placeholder" aria-hidden="true">
               [IMAGE PLACEHOLDER]
             </div>
@@ -51,10 +51,6 @@ export function ServicesSection({ content }: ServicesSectionProps) {
           </article>
         ))}
       </div>
-      <a className="solid-button" href={content.cta.href}>
-        <span>{content.cta.label}</span>
-        <span aria-hidden="true">+</span>
-      </a>
     </section>
   )
 }

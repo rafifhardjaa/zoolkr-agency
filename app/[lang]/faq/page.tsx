@@ -18,7 +18,7 @@ export default async function FaqPage({ params }: FaqPageProps) {
         <div className="page-head">
           <h1 className="page-title">{content.title}</h1>
         </div>
-        <FaqSection content={content} />
+        <FaqSection content={content} hideTitle />
       </div>
     </main>
   )

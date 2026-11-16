@@ -4,16 +4,19 @@ import { SectionMeta } from '@/components/ui/SectionMeta'
 
 interface FaqSectionProps {
   content: HomepageContent['sections']['faq']
+  hideTitle?: boolean
 }
 
-export function FaqSection({ content }: FaqSectionProps) {
+export function FaqSection({ content, hideTitle = false }: FaqSectionProps) {
   return (
     <section id="faq" className="faq section-pad">
       <div>
         <SectionMeta label={content.label} subtitle={content.subtitle} />
-        <RevealText as="h2" className="section-title">
-          {content.title}
-        </RevealText>
+        {hideTitle ? null : (
+          <RevealText as="h2" className="section-title">
+            {content.title}
+          </RevealText>
+        )}
       </div>
       <div className="faq-list">
         {content.items.map((item, index) => (
