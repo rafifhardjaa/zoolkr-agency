@@ -2,6 +2,7 @@ import Link from 'next/link'
 import { localePath } from '@/lib/i18n'
 import type { HomepageContent, Locale } from '@/content/types'
 import { LiveClock } from '@/components/ui/LiveClock'
+import { Magnetic } from '@/components/ui/Magnetic'
 
 interface FooterProps {
   locale: Locale
@@ -14,10 +15,12 @@ export function Footer({ locale, brand, content }: FooterProps) {
     <footer>
       <div className="footer-cta">
         <p className="footer-kicker">{content.kicker}</p>
-        <a className="footer-headline" href={content.cta.href}>
-          {content.cta.label}
-          <i aria-hidden="true">+</i>
-        </a>
+        <Magnetic>
+          <a className="footer-headline" href={content.cta.href}>
+            {content.cta.label}
+            <i aria-hidden="true">+</i>
+          </a>
+        </Magnetic>
       </div>
       <div className="footer-base">
         <Link className="brand" href={localePath(locale)}>

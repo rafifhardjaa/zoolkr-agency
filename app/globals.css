@@ -1342,6 +1342,13 @@ html {
   font-size: 11px;
 }
 
+.magnetic {
+  vertical-align: top;
+  transition: transform var(--duration-normal) var(--ease-out-smooth);
+  display: inline-block;
+  will-change: transform;
+}
+
 .footer-headline {
   font-family: var(--font-display);
   letter-spacing: -0.04em;
