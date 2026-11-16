@@ -1326,6 +1326,22 @@ html {
   }
 }
 
+/* The rail floats over the dark hero video, where muted grey loses contrast.
+   It stays out of the way until the page leaves the hero. */
+.section-rail[data-idle='true'] {
+  visibility: hidden;
+  opacity: 0;
+}
+
+/* Reserve a gutter so no section text slides under the fixed rail. */
+@media (min-width: 1024px) and (pointer: fine) {
+  .section-pad,
+  .footer-cta,
+  .footer-base {
+    padding-right: calc(var(--pad) + 120px);
+  }
+}
+
 /* Footer */
 .footer-cta {
   padding: clamp(72px, 12vh, 160px) var(--pad);

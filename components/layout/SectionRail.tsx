@@ -33,7 +33,11 @@ export function SectionRail({
   }, [sections])
 
   return (
-    <nav className="section-rail" aria-label={label}>
+    <nav
+      className="section-rail"
+      aria-label={label}
+      data-idle={active === sections[0]?.id ? 'true' : undefined}
+    >
       {sections.map((section) => (
         <button
           key={section.id}
