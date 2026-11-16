@@ -68,7 +68,7 @@ export const idContent: HomepageContent = {
   sections: {
     clients: {
       label: 'IN GOOD COMPANY',
-      note: 'Pidapple',
+      note: 'Dua studi kasus portfolio',
     },
     about: {
       label: 'Z / SIAPA KAMI',
@@ -76,7 +76,7 @@ export const idContent: HomepageContent = {
       manifesto: 'Karya yang kami buat, Anda bilang: *kita buat ini*.',
       body: 'Zoolkr adalah studio kreatif. Kami membangun website, memotret foto, dan memproduksi video. Kami juga menjalankan agency konten kreator untuk brand yang butuh suara asli di media sosial.',
       muted: 'Kami bekerja seperti tim kecil: satu proyek dalam satu waktu, satu keputusan dalam satu waktu, tanpa penyerahan antar departemen yang saling tidak mengenal.',
-      caption: 'Studio Zoolkr',
+      caption: 'Ruang kerja studio',
       cta: { label: 'Keahlian kami', href: '#expertise' },
     },
     expertise: {
@@ -94,6 +94,12 @@ export const idContent: HomepageContent = {
           description:
             'Kami membangun website dengan Next.js, dari sketsa pertama sampai hari peluncuran. Cepat, dapat diakses, dan dibuat untuk tahan lama.',
           tags: ['Next.js', 'TypeScript', 'Tailwind'],
+          image: {
+            src: 'https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=800&q=80&fm=webp',
+            alt: 'Tim bekerja dengan laptop di meja',
+            width: 800,
+            height: 533,
+          },
         },
         {
           number: '02',
@@ -102,6 +108,12 @@ export const idContent: HomepageContent = {
           description:
             'Kami memotret dan mengedit foto serta video untuk brand yang butuh lebih dari klip ponsel.',
           tags: ['Fotografi', 'Videografi', 'Editing'],
+          image: {
+            src: 'https://images.unsplash.com/photo-1542038784456-1ea8e935640e?auto=format&fit=crop&w=800&q=80&fm=webp',
+            alt: 'Fotografer memotret di luar ruangan',
+            width: 800,
+            height: 533,
+          },
         },
         {
           number: '03',
@@ -110,6 +122,12 @@ export const idContent: HomepageContent = {
           description:
             'Kami menjalankan agency konten kreator. Channel sosial Anda mendapatkan postingan asli, ditulis dan diambil oleh orang yang melakukannya setiap hari.',
           tags: ['Agency konten', 'Konten sosial', 'Strategi'],
+          image: {
+            src: 'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=800&q=80&fm=webp',
+            alt: 'Tiga orang berdiskusi di meja kerja',
+            width: 800,
+            height: 533,
+          },
         },
       ],
     },
@@ -125,12 +143,33 @@ export const idContent: HomepageContent = {
       cases: [
         {
           number: '01',
-          title: '[STUDI KASUS]',
-          brand: '[BRAND]',
-          category: '[KATEGORI]',
+          title: 'Katalog Produk Lokal',
+          brand: 'Studi Konsep',
+          category: 'WEB',
           categoryKey: 'all',
-          stat: '[STAT]',
-          statLabel: '[LABEL]',
+          image: {
+            src: 'https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=1600&q=80&fm=webp',
+            alt: 'Interior toko dengan rak produk',
+            width: 1600,
+            height: 1000,
+          },
+          description:
+            'Studi kasus konsep katalog produk dengan antarmuka editorial dan navigasi yang jelas untuk brand makanan lokal.',
+        },
+        {
+          number: '02',
+          title: 'Seri Foto Produk',
+          brand: 'Fotografi Produk',
+          category: 'MEDIA',
+          categoryKey: 'all',
+          image: {
+            src: 'https://images.unsplash.com/photo-1502920917128-1aa500764cbd?auto=format&fit=crop&w=1600&q=80&fm=webp',
+            alt: 'Kamera DSLR di atas latar putih',
+            width: 1600,
+            height: 1000,
+          },
+          description:
+            'Studi kasus konsep seri foto produk dengan pencahayaan studio dan editing warna untuk brand minuman.',
         },
       ],
     },

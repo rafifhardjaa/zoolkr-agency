@@ -33,6 +33,12 @@ export interface ServiceItem {
   title: string
   description: string
   tags: string[]
+  image: {
+    src: string
+    alt: string
+    width: number
+    height: number
+  }
 }
 
 export interface CaseItem {
@@ -41,8 +47,13 @@ export interface CaseItem {
   brand: string
   category: string
   categoryKey: string
-  stat: string
-  statLabel: string
+  image: {
+    src: string
+    alt: string
+    width: number
+    height: number
+  }
+  description: string
 }
 
 export interface FaqItem {

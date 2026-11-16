@@ -30,8 +30,15 @@ export function ExpertiseSection({ content }: ExpertiseSectionProps) {
               <span>{service.tag}</span>
             </div>
             <RevealText as="h3">{service.title}</RevealText>
-            <div className="service-media-placeholder" aria-hidden="true">
-              [IMAGE PLACEHOLDER]
+            <div className="service-media">
+              <img
+                src={service.image.src}
+                alt={service.image.alt}
+                width={service.image.width}
+                height={service.image.height}
+                loading="lazy"
+                referrerPolicy="no-referrer"
+              />
             </div>
             <div className="service-copy">
               <p>{service.description}</p>

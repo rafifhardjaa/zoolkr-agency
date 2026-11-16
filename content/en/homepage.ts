@@ -68,7 +68,7 @@ export const enContent: HomepageContent = {
   sections: {
     clients: {
       label: 'IN GOOD COMPANY',
-      note: 'Pidapple',
+      note: 'Two portfolio case studies',
     },
     about: {
       label: 'Z / WHO WE ARE',
@@ -76,7 +76,7 @@ export const enContent: HomepageContent = {
       manifesto: 'We make the kind of work you point at and say, *we did that*.',
       body: 'Zoolkr is a creative studio. We build websites, shoot photography, and produce video. We also run a content creator agency for brands that need a real voice on social.',
       muted: 'We work the way a small team works. One project at a time. One decision at a time. No handoff between departments that have never met each other.',
-      caption: 'Zoolkr studio',
+      caption: 'Studio workspace',
       cta: { label: 'Our expertise', href: '#expertise' },
     },
     expertise: {
@@ -94,6 +94,12 @@ export const enContent: HomepageContent = {
           description:
             'We build websites in Next.js, from the first sketch to the launch day. Fast, accessible, and built to last.',
           tags: ['Next.js', 'TypeScript', 'Tailwind'],
+          image: {
+            src: 'https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=800&q=80&fm=webp',
+            alt: 'Team working on laptops at a desk',
+            width: 800,
+            height: 533,
+          },
         },
         {
           number: '02',
@@ -102,6 +108,12 @@ export const enContent: HomepageContent = {
           description:
             'We shoot and edit photography and video for brands that need more than a phone clip.',
           tags: ['Photography', 'Videography', 'Editing'],
+          image: {
+            src: 'https://images.unsplash.com/photo-1542038784456-1ea8e935640e?auto=format&fit=crop&w=800&q=80&fm=webp',
+            alt: 'Photographer shooting outdoors',
+            width: 800,
+            height: 533,
+          },
         },
         {
           number: '03',
@@ -110,6 +122,12 @@ export const enContent: HomepageContent = {
           description:
             'We run a content creator agency. Your social channels get real posts, written and shot by people who do it every day.',
           tags: ['Creator agency', 'Social content', 'Strategy'],
+          image: {
+            src: 'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=800&q=80&fm=webp',
+            alt: 'Three people talking around a table',
+            width: 800,
+            height: 533,
+          },
         },
       ],
     },
@@ -125,12 +143,33 @@ export const enContent: HomepageContent = {
       cases: [
         {
           number: '01',
-          title: '[CASE STUDY]',
-          brand: '[BRAND]',
-          category: '[CATEGORY]',
+          title: 'Local Product Catalog',
+          brand: 'Concept Study',
+          category: 'WEB',
           categoryKey: 'all',
-          stat: '[STAT]',
-          statLabel: '[LABEL]',
+          image: {
+            src: 'https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=1600&q=80&fm=webp',
+            alt: 'Store interior with product shelves',
+            width: 1600,
+            height: 1000,
+          },
+          description:
+            'Concept case study for a product catalog with editorial interface and clear navigation for a local food brand.',
+        },
+        {
+          number: '02',
+          title: 'Product Photography Series',
+          brand: 'Product Photography',
+          category: 'MEDIA',
+          categoryKey: 'all',
+          image: {
+            src: 'https://images.unsplash.com/photo-1502920917128-1aa500764cbd?auto=format&fit=crop&w=1600&q=80&fm=webp',
+            alt: 'DSLR camera on a plain background',
+            width: 1600,
+            height: 1000,
+          },
+          description:
+            'Concept case study for a product photography series with studio lighting and color editing for a beverage brand.',
         },
       ],
     },

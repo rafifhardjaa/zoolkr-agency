@@ -8,12 +8,12 @@ interface PortfolioSectionProps {
     note: string
     cta: { label: string; href: string }
   }
-  placeholderCase: HomepageContent['sections']['work']['cases'][number]
+  cases: HomepageContent['sections']['work']['cases']
 }
 
 export function PortfolioSection({
   content,
-  placeholderCase,
+  cases,
 }: PortfolioSectionProps) {
   return (
     <section className="work section-pad">
@@ -24,25 +24,29 @@ export function PortfolioSection({
         <span className="portfolio-note">{content.note}</span>
       </div>
       <div className="work-list">
-        <article className="work-card">
-          <div className="case-media">
-            <div className="case-media-placeholder" aria-hidden="true">
-              [IMAGE PLACEHOLDER]
+        {cases.map((item) => (
+          <article className="work-card" key={item.number}>
+            <div className="case-media">
+              <img
+                src={item.image.src}
+                alt={item.image.alt}
+                width={item.image.width}
+                height={item.image.height}
+                loading="lazy"
+                referrerPolicy="no-referrer"
+              />
             </div>
-          </div>
-          <div className="case-info">
-            <span className="case-num">{placeholderCase.number} /</span>
-            <h2>{placeholderCase.title}</h2>
-            <div>
-              <span className="case-brand">{placeholderCase.brand}</span>
-              <span className="case-category">{placeholderCase.category}</span>
+            <div className="case-info">
+              <span className="case-num">{item.number} /</span>
+              <h2>{item.title}</h2>
+              <div>
+                <span className="case-brand">{item.brand}</span>
+                <span className="case-category">{item.category}</span>
+              </div>
+              <p className="case-desc">{item.description}</p>
             </div>
-            <span className="case-stat">
-              {placeholderCase.stat}
-              <small>{placeholderCase.statLabel}</small>
-            </span>
-          </div>
-        </article>
+          </article>
+        ))}
       </div>
       <Link className="solid-button" href={content.cta.href}>
         <span>{content.cta.label}</span>

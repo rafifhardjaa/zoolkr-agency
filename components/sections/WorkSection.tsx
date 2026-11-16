@@ -26,13 +26,18 @@ export function WorkSection({ content }: WorkSectionProps) {
                 href={content.viewHref}
                 aria-label={`${content.viewLabel}: ${item.title}`}
               >
-                <div className="case-media-placeholder" aria-hidden="true">
-                  [CASE IMAGE PLACEHOLDER]
-                </div>
-                <span className="case-view" aria-hidden="true">
-                  {content.viewLabel}
-                </span>
+                <img
+                  src={item.image.src}
+                  alt={item.image.alt}
+                  width={item.image.width}
+                  height={item.image.height}
+                  loading="lazy"
+                  referrerPolicy="no-referrer"
+                />
               </a>
+              <span className="case-view" aria-hidden="true">
+                {content.viewLabel}
+              </span>
             </div>
             <div className="case-info">
               <span className="case-num">{item.number} /</span>
@@ -41,10 +46,6 @@ export function WorkSection({ content }: WorkSectionProps) {
                 <span className="case-brand">{item.brand}</span>
                 <span className="case-category">{item.category}</span>
               </div>
-              <span className="case-stat">
-                {item.stat}
-                <small>{item.statLabel}</small>
-              </span>
             </div>
           </article>
         ))}

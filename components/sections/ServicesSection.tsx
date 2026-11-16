@@ -13,6 +13,12 @@ interface ServicesSectionProps {
       title: string
       description: string
       tags: string[]
+      image: {
+        src: string
+        alt: string
+        width: number
+        height: number
+      }
     }>
     cta: { label: string; href: string }
   }
@@ -37,8 +43,15 @@ export function ServicesSection({ content }: ServicesSectionProps) {
               <span>{service.tag}</span>
             </div>
             <RevealText as="h2">{service.title}</RevealText>
-            <div className="service-media-placeholder" aria-hidden="true">
-              [IMAGE PLACEHOLDER]
+            <div className="service-media">
+              <img
+                src={service.image.src}
+                alt={service.image.alt}
+                width={service.image.width}
+                height={service.image.height}
+                loading="lazy"
+                referrerPolicy="no-referrer"
+              />
             </div>
             <div className="service-copy">
               <p>{service.description}</p>

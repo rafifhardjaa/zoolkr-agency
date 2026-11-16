@@ -16,7 +16,14 @@ export function AboutSection({ content }: AboutSectionProps) {
       </RevealText>
       <div className="about-bottom">
         <RevealText as="div" className="about-photo">
-          <span className="about-photo-placeholder">{content.caption}</span>
+          <img
+            src={'https://images.unsplash.com/photo-1497215728101-856f4ea42174?auto=format&fit=crop&w=1600&q=80&fm=webp'}
+            alt={content.caption}
+            width={1600}
+            height={1000}
+            loading="lazy"
+            referrerPolicy="no-referrer"
+          />
         </RevealText>
         <RevealText as="div" className="about-copy">
           <p>{content.body}</p>

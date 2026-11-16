@@ -10,6 +10,12 @@ export const enServices = {
       description:
         'We build websites in Next.js, from the first sketch to launch day. Fast, accessible, and built to last.',
       tags: ['Next.js', 'TypeScript', 'Tailwind'],
+      image: {
+        src: 'https://images.unsplash.com/photo-1521737711867-e3b97375f902?auto=format&fit=crop&w=800&q=80&fm=webp',
+            alt: 'Two people working on laptops',
+        width: 800,
+        height: 533,
+      },
     },
     {
       number: '02',
@@ -18,6 +24,12 @@ export const enServices = {
       description:
         'We shoot and edit photography and video for brands that need more than a phone clip.',
       tags: ['Photography', 'Videography', 'Editing'],
+      image: {
+        src: 'https://images.unsplash.com/photo-1493863641943-9b68992a8d07?auto=format&fit=crop&w=800&q=80&fm=webp',
+            alt: 'Photographer shooting on a city street',
+        width: 800,
+        height: 533,
+      },
     },
     {
       number: '03',
@@ -26,6 +38,12 @@ export const enServices = {
       description:
         'We run a content creator agency. Your social channels get real posts, written and shot by people who do it every day.',
       tags: ['Creator agency', 'Social content', 'Strategy'],
+      image: {
+        src: 'https://images.unsplash.com/photo-1452587925148-ce544e77e70d?auto=format&fit=crop&w=800&q=80&fm=webp',
+            alt: 'Camera and photo prints on a desk',
+        width: 800,
+        height: 533,
+      },
     },
   ],
   cta: { label: 'Start a project', href: '/en/kontak' },

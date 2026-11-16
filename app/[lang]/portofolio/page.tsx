@@ -12,18 +12,20 @@ export default async function PortofolioPage({ params }: PortofolioPageProps) {
   const { lang } = await params
   if (!isLocale(lang)) notFound()
 
-  const content = lang === 'en' ? enPortfolio : idPortfolio
-  const placeholderCase =
-    getHomepageContent(lang).sections.work.cases[0]
+  const portfolioContent = lang === 'en' ? enPortfolio : idPortfolio
+  const homepageContent = getHomepageContent(lang)
 
   return (
     <main id="main">
       <div className="page">
         <div className="page-head">
-          <h1 className="page-title">{content.title}</h1>
-          <p className="page-lead">{content.lead}</p>
+          <h1 className="page-title">{portfolioContent.title}</h1>
+          <p className="page-lead">{portfolioContent.lead}</p>
         </div>
-        <PortfolioSection content={content} placeholderCase={placeholderCase} />
+        <PortfolioSection
+          content={portfolioContent}
+          cases={homepageContent.sections.work.cases}
+        />
       </div>
     </main>
   )
