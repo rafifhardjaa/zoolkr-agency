@@ -12,7 +12,7 @@ export function SectionRail({
   label: string
 }) {
   const [active, setActive] = useState(sections[0]?.id ?? '')
-  const [overFooter, setOverFooter] = useState(false)
+  const [overBand, setOverBand] = useState(false)
   const reducedMotion = useReducedMotion()
 
   useEffect(() => {
@@ -33,17 +33,27 @@ export function SectionRail({
     return () => observer.disconnect()
   }, [sections])
 
-  // The footer is dark and outside the rail's index, so the rail steps aside
-  // once the footer top rises into the rail's band.
+  // Full-bleed dark bands (the ticker, the footer) have no right margin for the
+  // rail and invert its contrast, so the rail steps aside while they pass
+  // through its band.
   useEffect(() => {
-    const footer = document.querySelector('footer')
     const rail = document.querySelector('.section-rail')
-    if (!footer || !rail) return
+    if (!rail) return
 
-    const update = () =>
-      setOverFooter(
-        footer.getBoundingClientRect().top < rail.getBoundingClientRect().bottom
+    const bands = Array.from(
+      document.querySelectorAll<HTMLElement>('.ticker, footer')
+    )
+    if (bands.length === 0) return
+
+    const update = () => {
+      const railBox = rail.getBoundingClientRect()
+      setOverBand(
+        bands.some((band) => {
+          const box = band.getBoundingClientRect()
+          return box.top < railBox.bottom && box.bottom > railBox.top
+        })
       )
+    }
 
     update()
     window.addEventListener('scroll', update, { passive: true })
@@ -58,7 +68,7 @@ export function SectionRail({
     <nav
       className="section-rail"
       aria-label={label}
-      data-idle={active === sections[0]?.id || overFooter ? 'true' : undefined}
+      data-idle={active === sections[0]?.id || overBand ? 'true' : undefined}
     >
       {sections.map((section) => (
         <button
