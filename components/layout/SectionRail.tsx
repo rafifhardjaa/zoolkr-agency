@@ -3,6 +3,7 @@
 import { useEffect, useState } from 'react'
 import type { RailItem } from '@/content/types'
 import { useReducedMotion } from '@/hooks/useReducedMotion'
+import { onLayoutChange, subscribeScroll } from '@/lib/scrollFeed'
 
 export function SectionRail({
   sections,
@@ -35,9 +36,10 @@ export function SectionRail({
 
   // Full-bleed dark bands (the ticker, the footer) have no right margin for the
   // rail and invert its contrast, so the rail steps aside while they pass
-  // through its band.
+  // through its band. Both boxes are cached so the frame loop never reads
+  // layout; the band offsets are document-space, the rail is fixed.
   useEffect(() => {
-    const rail = document.querySelector('.section-rail')
+    const rail = document.querySelector<HTMLElement>('.section-rail')
     if (!rail) return
 
     const bands = Array.from(
@@ -45,22 +47,33 @@ export function SectionRail({
     )
     if (bands.length === 0) return
 
-    const update = () => {
+    let railTop = 0
+    let railBottom = 0
+    let bandRects: Array<{ top: number; bottom: number }> = []
+
+    const refresh = () => {
       const railBox = rail.getBoundingClientRect()
-      setOverBand(
-        bands.some((band) => {
-          const box = band.getBoundingClientRect()
-          return box.top < railBox.bottom && box.bottom > railBox.top
-        })
-      )
+      railTop = railBox.top
+      railBottom = railBox.bottom
+      bandRects = bands.map((band) => {
+        const box = band.getBoundingClientRect()
+        return { top: box.top + window.scrollY, bottom: box.bottom + window.scrollY }
+      })
     }
 
-    update()
-    window.addEventListener('scroll', update, { passive: true })
-    window.addEventListener('resize', update)
+    refresh()
+
+    const unsubscribeLayout = onLayoutChange(refresh)
+    const unsubscribeScroll = subscribeScroll((state) => {
+      const overBand = bandRects.some(
+        (band) => band.top - state.y < railBottom && band.bottom - state.y > railTop
+      )
+      setOverBand((previous) => (previous === overBand ? previous : overBand))
+    })
+
     return () => {
-      window.removeEventListener('scroll', update)
-      window.removeEventListener('resize', update)
+      unsubscribeScroll()
+      unsubscribeLayout()
     }
   }, [])
 

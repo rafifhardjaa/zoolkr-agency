@@ -785,11 +785,21 @@ body.menu-open {
 }
 
 /* Reveal animation — scroll-linked.
-   The hook writes 0–1 progress to --reveal-p every frame, so a reveal follows
-   the scroll position in both directions instead of snapping on a fixed
-   transition. Without the attribute (no JS) the content stays visible. */
-.reveal[data-reveal] {
+   lib/revealStore.ts writes 0–1 progress to --reveal-p every frame, so a reveal
+   follows the scroll position in both directions instead of snapping on a
+   fixed transition. Without the attribute (no JS) the content stays visible. */
+[data-reveal] {
   --rp: min(1, max(0, var(--reveal-p, 0)));
+}
+
+/* Offset refresh reads untransformed boxes without changing layout. */
+html.reveal-measuring [data-reveal],
+html.reveal-measuring [data-reveal] .reveal-mask-inner,
+html.reveal-measuring [data-reveal] img {
+  transform: none;
+}
+
+.reveal[data-reveal] {
   opacity: var(--rp);
   filter: blur(calc(3px * (1 - var(--rp))));
   transform: translateY(calc((1 - var(--rp)) * 28px));
@@ -804,7 +814,6 @@ body.menu-open {
 }
 
 .reveal-mask[data-reveal] .reveal-mask-inner {
-  --rp: min(1, max(0, var(--reveal-p, 0)));
   display: block;
   will-change: transform;
   transform: translateY(calc((1 - var(--rp)) * 112%));
@@ -813,7 +822,6 @@ body.menu-open {
 /* Media curtain: the frame opens, the image settles from a slight crop. The
    clip lives on the image so the observed wrapper keeps a measurable box. */
 .reveal-media[data-reveal] img {
-  --rp: min(1, max(0, var(--reveal-p, 0)));
   clip-path: inset(0 0 calc((1 - var(--rp)) * 100%) 0);
   transform: translateY(calc((1 - var(--rp)) * 12%))
     scale(calc(1.02 + (1 - var(--rp)) * 0.07));

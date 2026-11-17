@@ -1,13 +1,24 @@
 'use client'
 
-import { useScrollProgress } from '@/hooks/useScrollProgress'
+import { useEffect, useRef } from 'react'
+import { subscribeScroll } from '@/lib/scrollFeed'
 
 export function ScrollProgress(): React.JSX.Element {
-  const progress = Math.min(1, Math.max(0, useScrollProgress()))
+  const barRef = useRef<HTMLDivElement | null>(null)
+
+  useEffect(
+    () =>
+      subscribeScroll((state) => {
+        const bar = barRef.current
+        if (!bar) return
+        bar.style.transform = 'scaleX(' + state.progress + ')'
+      }),
+    []
+  )
 
   return (
     <div className="scroll-progress" aria-hidden="true">
-      <div className="scroll-progress-bar" style={{ transform: 'scaleX(' + progress + ')' }} />
+      <div ref={barRef} className="scroll-progress-bar" />
     </div>
   )
 }

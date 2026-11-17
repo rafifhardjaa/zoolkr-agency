@@ -1,9 +1,4 @@
-'use client'
-
 import React from 'react'
-
-import { useReducedMotion } from '@/hooks/useReducedMotion'
-import { useScrollReveal } from '@/hooks/useScrollReveal'
 
 type RevealVariant = 'up' | 'mask' | 'media'
 
@@ -24,6 +19,11 @@ const VARIANT_CLASS: Record<RevealVariant, string> = {
   media: 'reveal-media',
 }
 
+/**
+ * Marks an element for `RevealEngine`. The engine writes 0-1 progress to
+ * `--reveal-p` and CSS maps that to the visual state, so this stays a server
+ * component and the markup carries the registration.
+ */
 export function RevealText({
   children,
   as = 'div',
@@ -33,14 +33,6 @@ export function RevealText({
   stagger = false,
   variant = 'up',
 }: RevealTextProps): React.JSX.Element {
-  const prefersReducedMotion = useReducedMotion()
-  // The hook writes 0–1 progress to --reveal-p; CSS maps that to the visual
-  // state, so entering and leaving both track the scroll position live.
-  const ref = useScrollReveal<HTMLElement>({
-    delay,
-    enabled: !prefersReducedMotion,
-  })
-
   const base = stagger ? '' : VARIANT_CLASS[variant]
   const revealClasses = [base, stagger ? 'reveal-stagger' : '', className]
     .filter(Boolean)
@@ -49,7 +41,11 @@ export function RevealText({
   // Mask reveal needs one inner element to slide behind the clipped edge.
   const child = variant === 'mask' ? <span className="reveal-mask-inner">{children}</span> : children
 
-  const props = { ref, className: revealClasses } as Record<string, unknown>
+  const props: Record<string, unknown> = {
+    className: revealClasses,
+    'data-reveal-el': '',
+  }
+  if (delay !== undefined) props['data-delay'] = delay
   if (as === 'a' && href) props.href = href
 
   return React.createElement(as, props, child)

@@ -2,6 +2,7 @@ import Image from 'next/image'
 import { HeroVideo } from './HeroVideo'
 import type { HomepageContent } from '@/content/types'
 import { LiveClock } from '@/components/ui/LiveClock'
+import { PlusLink } from '@/components/ui/PlusLink'
 
 interface HeroSectionProps {
   content: HomepageContent['hero']
@@ -60,12 +61,12 @@ export function HeroSection({ content }: HeroSectionProps) {
 
           <div className="hero-intro">
             <p>{content.intro}</p>
-            <a className="text-link" href={content.cta.href}>
-              <span>{content.cta.label}</span>
-              <span className="text-link-plus" aria-hidden="true">
-                +
-              </span>
-            </a>
+            <PlusLink
+              className="text-link"
+              plusClassName="text-link-plus"
+              href={content.cta.href}
+              label={content.cta.label}
+            />
           </div>
 
         </div>

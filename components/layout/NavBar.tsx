@@ -4,6 +4,7 @@ import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { Fragment, useEffect, useRef, useState } from 'react'
 import { useNavSticky } from '@/hooks/useNavSticky'
+import { PlusLink } from '@/components/ui/PlusLink'
 import { localePath } from '@/lib/i18n'
 import type { HomepageContent, Locale } from '@/content/types'
 
@@ -99,10 +100,7 @@ export function NavBar({ locale, content }: NavBarProps) {
             ))}
           </nav>
 
-          <Link className="nav-cta" href={content.cta.href}>
-            <span>{content.cta.label}</span>
-            <span aria-hidden="true">+</span>
-          </Link>
+          <PlusLink className="nav-cta" href={content.cta.href} label={content.cta.label} />
 
           <button
             className="menu-toggle"

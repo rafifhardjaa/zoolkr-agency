@@ -8,6 +8,7 @@ import { ScrollProgress } from '@/components/layout/ScrollProgress'
 import { getHomepageContent, isLocale, locales } from '@/lib/i18n'
 import { buildHomepageMetadata } from '@/lib/metadata'
 import { CursorFollower } from '@/components/layout/CursorFollower'
+import { RevealEngine } from '@/components/ui/RevealEngine'
 
 const jost = Jost({
   subsets: ['latin'],
@@ -52,6 +53,7 @@ export default async function LocaleLayout({ children, params }: LocaleLayoutPro
         <ScrollProgress />
         <NavBar locale={lang} content={content.nav} />
         {children}
+        <RevealEngine />
         <Footer locale={lang} brand={content.nav.brand} content={content.sections.footer} />
         <CursorFollower />
       </body>
