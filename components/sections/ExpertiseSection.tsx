@@ -1,6 +1,7 @@
 import type { HomepageContent } from '@/content/types'
 import { RevealText } from '@/components/ui/RevealText'
 import { SectionMeta } from '@/components/ui/SectionMeta'
+import { SectionMargin } from '@/components/ui/SectionMargin'
 import { Accent } from '@/components/ui/Accent'
 import { PlusLink } from '@/components/ui/PlusLink'
 import { ServiceCard } from '@/components/sections/ServiceCard'
@@ -12,8 +13,9 @@ interface ExpertiseSectionProps {
 export function ExpertiseSection({ content }: ExpertiseSectionProps) {
   return (
     <section id="expertise" className="expertise section-pad">
+      <SectionMargin label={content.label} />
       <div className="expertise-intro">
-        <SectionMeta label={content.label} subtitle={content.subtitle} />
+        <SectionMeta label={content.label} subtitle={content.subtitle} folio />
         <RevealText as="h2" className="section-title" variant="mask">
           <Accent text={content.title} />
         </RevealText>
@@ -26,6 +28,7 @@ export function ExpertiseSection({ content }: ExpertiseSectionProps) {
         </RevealText>
       </div>
       <div className="service-list">
+        <RevealText as="div" className="rule-draw" variant="rule" />
         {content.services.map((service, index) => (
           <ServiceCard
             key={service.number}

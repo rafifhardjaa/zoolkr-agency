@@ -966,6 +966,17 @@ html.reveal-measuring [data-reveal] img {
     scale(calc(1.02 + (1 - var(--rp)) * 0.07));
 }
 
+/* Rule: a hairline that draws itself with the scroll instead of fading in. */
+.reveal-rule[data-reveal] {
+  transform: scaleX(var(--rp));
+  transform-origin: left center;
+}
+
+.rule-draw {
+  background: var(--color-ink);
+  height: 1px;
+}
+
 /* Staggered group: the wrapper stays put while each child lags the group
    progress by a fraction, so the group fans in and out with the scroll. */
 .reveal-stagger[data-reveal] > * {
@@ -1005,6 +1016,51 @@ html {
   padding: clamp(80px, 11vh, 140px) var(--pad);
 }
 
+/* Exposed grid: the two densest sections show the frame their content sits in,
+   the same device the hero already uses, so the grid reads as structure
+   rather than as a background texture. */
+.expertise,
+.work {
+  position: relative;
+  isolation: isolate;
+}
+
+.expertise::before,
+.work::before {
+  content: "";
+  border-inline: 1px solid var(--color-line);
+  pointer-events: none;
+  position: absolute;
+  z-index: -1;
+  inset: 0 var(--pad);
+  opacity: 0;
+}
+
+@media (min-width: 1100px) {
+  .expertise::before,
+  .work::before {
+    opacity: 1;
+  }
+}
+
+/* The single column rule of the two-up case grid, drawn on the actual gutter. */
+@media (min-width: 900px) {
+  .work-list {
+    position: relative;
+  }
+
+  .work-list::before {
+    content: "";
+    background: var(--color-line);
+    pointer-events: none;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: calc(50% - 0.5px);
+    width: 1px;
+  }
+}
+
 .section-meta {
   font-family: var(--font-mono);
   letter-spacing: 0.04em;
@@ -1018,6 +1074,54 @@ html {
   padding-top: 12px;
   font-size: 11px;
   display: flex;
+  isolation: isolate;
+  position: relative;
+}
+
+/* Oversized outline numeral hung above the rule, in the section's top padding.
+   It repeats the number already in the subtitle so the scale jump carries the
+   section without adding a new content field. */
+.section-meta[data-index]::after {
+  content: attr(data-index);
+  z-index: -1;
+  font-family: var(--font-display);
+  letter-spacing: -0.06em;
+  color: transparent;
+  -webkit-text-stroke: 1px var(--color-line);
+  pointer-events: none;
+  position: absolute;
+  top: calc(-0.78em - 8px);
+  right: 0;
+  font-size: clamp(64px, 7vw, 120px);
+  line-height: 0.78;
+}
+
+@media (max-width: 899px) {
+  .section-meta[data-index]::after {
+    display: none;
+  }
+}
+
+/* Running marginalia: the section label repeats in the page gutter, like a
+   print running head. Only shown where the gutter is wide enough to hold it. */
+.section-margin {
+  display: none;
+}
+
+@media (min-width: 1280px) {
+  .section-margin {
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+    color: var(--color-muted-text);
+    writing-mode: vertical-rl;
+    pointer-events: none;
+    font-family: var(--font-mono);
+    font-size: 10px;
+    display: block;
+    position: absolute;
+    left: calc(var(--pad) / 2 - 6px);
+    top: 0;
+  }
 }
 
 .section-mark {
@@ -1162,6 +1266,36 @@ html {
 
 .case-media {
   position: relative;
+}
+
+.service-media {
+  position: relative;
+}
+
+/* Misregistration on hover: a crimson plate slips a few pixels off the image,
+   the offset colour edge a two-colour print leaves when the plates miss. */
+@media (hover: hover) and (prefers-reduced-motion: no-preference) {
+  .case-media::after,
+  .service-media::after {
+    content: "";
+    border: 1px solid var(--color-crimson);
+    pointer-events: none;
+    position: absolute;
+    opacity: 0;
+    transform: translate(0, 0);
+    transition:
+      opacity var(--duration-normal) var(--ease-out-smooth),
+      transform 0.45s var(--ease-out-expo);
+    inset: 0;
+  }
+
+  .work-card:hover .case-media::after,
+  .work-card:focus-within .case-media::after,
+  .service:hover .service-media::after,
+  .service:focus-within .service-media::after {
+    opacity: 1;
+    transform: translate(-7px, 7px);
+  }
 }
 
 .about-photo img,

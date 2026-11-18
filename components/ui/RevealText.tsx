@@ -1,9 +1,9 @@
 import React from 'react'
 
-type RevealVariant = 'up' | 'mask' | 'media'
+type RevealVariant = 'up' | 'mask' | 'media' | 'rule'
 
 export interface RevealTextProps {
-  children: React.ReactNode
+  children?: React.ReactNode
   as?: 'div' | 'p' | 'h2' | 'h3' | 'span' | 'article' | 'a'
   className?: string
   delay?: number
@@ -11,12 +11,15 @@ export interface RevealTextProps {
   /** Reveals direct children one after another inside the observed wrapper. */
   stagger?: boolean
   variant?: RevealVariant
+  /** Marks the wrapper with a section index for CSS-driven marginalia. */
+  dataIndex?: string
 }
 
 const VARIANT_CLASS: Record<RevealVariant, string> = {
   up: 'reveal',
   mask: 'reveal-mask',
   media: 'reveal-media',
+  rule: 'reveal-rule',
 }
 
 /**
@@ -32,6 +35,7 @@ export function RevealText({
   href,
   stagger = false,
   variant = 'up',
+  dataIndex,
 }: RevealTextProps): React.JSX.Element {
   const base = stagger ? '' : VARIANT_CLASS[variant]
   const revealClasses = [base, stagger ? 'reveal-stagger' : '', className]
@@ -46,6 +50,7 @@ export function RevealText({
     'data-reveal-el': '',
   }
   if (delay !== undefined) props['data-delay'] = delay
+  if (dataIndex) props['data-index'] = dataIndex
   if (as === 'a' && href) props.href = href
 
   return React.createElement(as, props, child)
