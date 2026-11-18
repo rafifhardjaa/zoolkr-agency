@@ -1,5 +1,4 @@
 import type { HomepageContent } from '@/content/types'
-import { SectionMeta } from '@/components/ui/SectionMeta'
 import { RevealText } from '@/components/ui/RevealText'
 import { PlusLink } from '@/components/ui/PlusLink'
 import { CaseCard } from '@/components/sections/CaseCard'
@@ -18,12 +17,9 @@ export function PortfolioSection({
   cases,
 }: PortfolioSectionProps) {
   return (
-    <section className="work section-pad">
+    <section className="work section-pad" aria-label={content.title}>
       <div className="work-heading">
-        <div>
-          <SectionMeta label={content.title} />
-        </div>
-        <RevealText as="span" className="portfolio-note" delay={80}>
+        <RevealText as="span" className="portfolio-note">
           {content.note}
         </RevealText>
       </div>
@@ -35,6 +31,7 @@ export function PortfolioSection({
             index={index}
             headingLevel="h2"
             showDescription
+            anchorId={`portofolio-${item.number}`}
           />
         ))}
       </div>

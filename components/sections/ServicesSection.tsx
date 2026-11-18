@@ -33,6 +33,7 @@ export function ServicesSection({ content }: ServicesSectionProps) {
             service={service}
             index={index}
             headingLevel="h2"
+            anchorId={`layanan-${service.number}`}
           />
         ))}
       </div>

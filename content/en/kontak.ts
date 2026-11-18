@@ -1,6 +1,16 @@
 import type { ContactContent } from '@/content/types'
 
 export const enKontak: ContactContent = {
+  head: {
+    guideLabel: 'Mention in your message',
+    guide: [
+      'what you are making, and who it is for',
+      'a deadline or release date, if you have one',
+      'a budget range, if it is already set',
+    ],
+    footLeft: 'Independent creative studio',
+    footRight: 'Semarang, ID',
+  },
   title: 'Contact',
   lead: 'Tell us about your project and we will get back to you.',
   meta: {

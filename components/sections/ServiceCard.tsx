@@ -5,15 +5,17 @@ export interface ServiceCardProps {
   service: ServiceItem
   index: number
   headingLevel: 'h2' | 'h3'
+  anchorId?: string
 }
 
 export function ServiceCard({
   service,
   index,
   headingLevel,
+  anchorId,
 }: ServiceCardProps): React.JSX.Element {
   return (
-    <article className="service">
+    <article className="service" id={anchorId}>
       <RevealText as="div" className="service-top" delay={index * 60}>
         <span>{service.number} /</span>
         <span>{service.tag}</span>

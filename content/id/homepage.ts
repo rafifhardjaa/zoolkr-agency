@@ -176,7 +176,15 @@ export const idContent: HomepageContent = {
     faq: {
       label: 'Z / PERTANYAAN UMUM',
       subtitle: '05 / PERTANYAAN',
+      head: {
+        indexLabel: 'Isi halaman',
+        topics: ['Biaya dan waktu', 'Cara kami bekerja', 'Setelah peluncuran'],
+        footLeft: 'Studio kreatif independen',
+        footRight: 'Semarang, ID',
+      },
       title: 'Pertanyaan *baik*',
+      intro:
+        'Lima pertanyaan yang paling sering kami terima, dengan jawaban langsung tanpa istilah pemasaran.',
       items: [
         {
           question: 'Berapa biaya sebuah proyek website?',

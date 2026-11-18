@@ -176,7 +176,15 @@ export const enContent: HomepageContent = {
     faq: {
       label: 'Z / GOOD QUESTIONS',
       subtitle: '05 / QUESTIONS',
+      head: {
+        indexLabel: 'On this page',
+        topics: ['Cost and timing', 'How we work', 'After launch'],
+        footLeft: 'Independent creative studio',
+        footRight: 'Semarang, ID',
+      },
       title: '*Good* questions',
+      intro:
+        'Five questions we get most often, answered plainly, without marketing terms.',
       items: [
         {
           question: 'How much does a website project cost?',

@@ -41,6 +41,21 @@ export interface ServiceItem {
   }
 }
 
+export interface ServicesContent {
+  head: {
+    label: string
+    meta: string
+    indexLabel: string
+    footLeft: string
+    footRight: string
+  }
+  title: string
+  lead: string
+  intro: string
+  services: ServiceItem[]
+  cta: LinkContent
+}
+
 export interface CaseItem {
   number: string
   title: string
@@ -59,6 +74,35 @@ export interface CaseItem {
 export interface FaqItem {
   question: string
   answer: string
+}
+
+export interface PortfolioContent {
+  head: {
+    label: string
+    meta: string
+    indexLabel: string
+    footLeft: string
+    footRight: string
+  }
+  title: string
+  lead: string
+  note: string
+  cta: LinkContent
+}
+
+export interface KarirContent {
+  head: {
+    label: string
+    meta: string
+    guideLabel: string
+    guide: string[]
+    footLeft: string
+    footRight: string
+  }
+  title: string
+  lead: string
+  body: string
+  cta: LinkContent
 }
 
 export interface HomepageContent {
@@ -132,7 +176,14 @@ export interface HomepageContent {
       cases: CaseItem[]
     }
     faq: SectionMetaContent & {
+      head: {
+        indexLabel: string
+        topics: string[]
+        footLeft: string
+        footRight: string
+      }
       title: string
+      intro: string
       items: FaqItem[]
       moreLabel: string
     }
@@ -165,6 +216,12 @@ export interface ContactMessages {
 }
 
 export interface ContactContent {
+  head: {
+    guideLabel: string
+    guide: string[]
+    footLeft: string
+    footRight: string
+  }
   title: string
   lead: string
   meta: SectionMetaContent

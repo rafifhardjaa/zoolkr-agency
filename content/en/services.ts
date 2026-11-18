@@ -1,4 +1,13 @@
-export const enServices = {
+import type { ServicesContent } from '@/content/types'
+
+export const enServices: ServicesContent = {
+  head: {
+    label: 'Z / SERVICES',
+    meta: '01 - 03 / THREE DISCIPLINES',
+    indexLabel: 'On this page',
+    footLeft: 'Independent creative studio',
+    footRight: 'Semarang, ID',
+  },
   title: 'Services',
   lead: 'Zoolkr is an independent creative studio. We build websites, shoot photography and video, and run a content creator agency for brands that need a real voice on social.',
   intro: 'We take on a limited number of projects each quarter, so the work stays good.',

@@ -1,4 +1,13 @@
-export const idServices = {
+import type { ServicesContent } from '@/content/types'
+
+export const idServices: ServicesContent = {
+  head: {
+    label: 'Z / LAYANAN',
+    meta: '01 - 03 / TIGA DISIPLIN',
+    indexLabel: 'Isi halaman',
+    footLeft: 'Studio kreatif independen',
+    footRight: 'Semarang, ID',
+  },
   title: 'Layanan',
   lead: 'Zoolkr adalah studio kreatif independen. Kami membangun website, memotret foto dan video, dan menjalankan agency konten kreator untuk brand yang butuh suara asli di media sosial.',
   intro: 'Kami menerima sejumlah proyek terbatas setiap kuartal, supaya kualitas karya tetap terjaga.',

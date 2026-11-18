@@ -1,6 +1,16 @@
 import type { ContactContent } from '@/content/types'
 
 export const idKontak: ContactContent = {
+  head: {
+    guideLabel: 'Sebutkan dalam pesan',
+    guide: [
+      'apa yang sedang Anda buat, dan untuk siapa',
+      'tenggat atau tanggal rilis, jika sudah ditetapkan',
+      'perkiraan anggaran, jika sudah ada patokannya',
+    ],
+    footLeft: 'Studio kreatif independen',
+    footRight: 'Semarang, ID',
+  },
   title: 'Kontak',
   lead: 'Ceritakan proyek Anda dan kami akan membalas segera.',
   meta: {

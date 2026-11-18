@@ -9,9 +9,14 @@ import { Accent } from '@/components/ui/Accent'
 interface FaqSectionProps {
   content: HomepageContent['sections']['faq']
   hideTitle?: boolean
+  hideMeta?: boolean
 }
 
-export function FaqSection({ content, hideTitle = false }: FaqSectionProps) {
+export function FaqSection({
+  content,
+  hideTitle = false,
+  hideMeta = false,
+}: FaqSectionProps) {
   const [openItems, setOpenItems] = useState<number[]>([])
 
   const toggle = (index: number) => {
@@ -23,15 +28,23 @@ export function FaqSection({ content, hideTitle = false }: FaqSectionProps) {
   }
 
   return (
-    <section id="faq" className="faq section-pad">
-      <div>
-        <SectionMeta label={content.label} subtitle={content.subtitle} />
-        {hideTitle ? null : (
-          <RevealText as="h2" className="section-title" variant="mask">
-            <Accent text={content.title} />
-          </RevealText>
-        )}
-      </div>
+    <section
+      id="faq"
+      className={`faq section-pad${hideMeta ? ' faq-flat' : ''}`}
+      aria-label={hideTitle ? content.title.replace(/\*/g, '') : undefined}
+    >
+      {hideTitle && hideMeta ? null : (
+        <div>
+          {hideMeta ? null : (
+            <SectionMeta label={content.label} subtitle={content.subtitle} />
+          )}
+          {hideTitle ? null : (
+            <RevealText as="h2" className="section-title" variant="mask">
+              <Accent text={content.title} />
+            </RevealText>
+          )}
+        </div>
+      )}
       <div className="faq-list">
         {content.items.map((item, index) => {
           const open = openItems.includes(index)

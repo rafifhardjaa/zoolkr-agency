@@ -1,5 +1,4 @@
 import { RevealText } from '@/components/ui/RevealText'
-import { SectionMeta } from '@/components/ui/SectionMeta'
 import { PlusLink } from '@/components/ui/PlusLink'
 
 interface KarirSectionProps {
@@ -12,9 +11,8 @@ interface KarirSectionProps {
 
 export function KarirSection({ content }: KarirSectionProps) {
   return (
-    <section className="karir section-pad">
+    <section className="karir section-pad" aria-label={content.title}>
       <div className="karir-intro">
-        <SectionMeta label={content.title} />
         <RevealText as="p" delay={80}>{content.body}</RevealText>
       </div>
       <RevealText as="div" className="reveal-cta" delay={140}>

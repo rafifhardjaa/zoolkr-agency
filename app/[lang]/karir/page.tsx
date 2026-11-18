@@ -1,6 +1,7 @@
 import { notFound } from 'next/navigation'
 import { isLocale } from '@/lib/i18n'
 import { KarirSection } from '@/components/sections/KarirSection'
+import { PageCover } from '@/components/ui/PageCover'
 import { enKarir } from '@/content/en/karir'
 import { idKarir } from '@/content/id/karir'
 
@@ -17,10 +18,18 @@ export default async function KarirPage({ params }: KarirPageProps) {
   return (
     <main id="main">
       <div className="page">
-        <div className="page-head">
-          <h1 className="page-title">{content.title}</h1>
-          <p className="page-lead">{content.lead}</p>
-        </div>
+        <PageCover
+          label={content.head.label}
+          meta={content.head.meta}
+          title={content.title}
+          lead={content.lead}
+          aside={{
+            label: content.head.guideLabel,
+            items: content.head.guide.map((item) => ({ label: item })),
+          }}
+          footLeft={content.head.footLeft}
+          footRight={content.head.footRight}
+        />
         <KarirSection content={content} />
       </div>
     </main>

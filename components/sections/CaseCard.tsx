@@ -7,6 +7,7 @@ export interface CaseCardProps {
   headingLevel: 'h2' | 'h3'
   link?: { href: string; label: string }
   showDescription?: boolean
+  anchorId?: string
 }
 
 export function CaseCard({
@@ -15,9 +16,10 @@ export function CaseCard({
   headingLevel,
   link,
   showDescription,
+  anchorId,
 }: CaseCardProps): React.JSX.Element {
   return (
-    <article className="work-card">
+    <article className="work-card" id={anchorId}>
       <RevealText as="div" className="case-media" variant="media" delay={index * 90}>
         {link ? (
           <>

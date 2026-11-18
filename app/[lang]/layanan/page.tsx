@@ -1,6 +1,7 @@
 import { notFound } from 'next/navigation'
 import { isLocale } from '@/lib/i18n'
 import { ServicesSection } from '@/components/sections/ServicesSection'
+import { PageCover } from '@/components/ui/PageCover'
 import { enServices } from '@/content/en/services'
 import { idServices } from '@/content/id/services'
 
@@ -17,10 +18,22 @@ export default async function LayananPage({ params }: LayananPageProps) {
   return (
     <main id="main">
       <div className="page">
-        <div className="page-head">
-          <h1 className="page-title">{content.title}</h1>
-          <p className="page-lead">{content.lead}</p>
-        </div>
+        <PageCover
+          label={content.head.label}
+          meta={content.head.meta}
+          title={content.title}
+          lead={content.lead}
+          aside={{
+            label: content.head.indexLabel,
+            items: content.services.map((service) => ({
+              meta: service.number,
+              label: service.title,
+              href: `#layanan-${service.number}`,
+            })),
+          }}
+          footLeft={content.head.footLeft}
+          footRight={content.head.footRight}
+        />
         <ServicesSection content={content} />
       </div>
     </main>

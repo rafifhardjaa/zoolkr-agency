@@ -1,5 +1,4 @@
 import type { ContactContent } from '@/content/types'
-import { SectionMeta } from '@/components/ui/SectionMeta'
 import { RevealText } from '@/components/ui/RevealText'
 import { ContactForm } from '@/components/sections/ContactForm'
 
@@ -9,9 +8,7 @@ interface ContactSectionProps {
 
 export function ContactSection({ content }: ContactSectionProps) {
   return (
-    <section className="contact">
-      <SectionMeta label={content.meta.label} subtitle={content.meta.subtitle} />
-
+    <section className="contact" aria-label={content.title}>
       <div className="contact-grid">
         <div className="contact-aside">
           <RevealText as="p" className="contact-intro">
