@@ -56,6 +56,51 @@ button:disabled,
   background: var(--color-crimson);
 }
 
+/* Native scrollbars are wider and brighter than the page. 8px keeps the gutter a slim
+   paper margin, and the ink-paper mix stays readable over paper and dark sections.
+   Firefox needs scrollbar-color, but Chrome would let it override the webkit rules. */
+@supports (scrollbar-width: thin) and (not selector(::-webkit-scrollbar)) {
+  html {
+    scrollbar-width: thin;
+    scrollbar-color: color-mix(in srgb, var(--color-ink) 50%, var(--color-paper))
+      var(--color-paper);
+  }
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track,
+::-webkit-scrollbar-corner {
+  background: var(--color-paper);
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: color-mix(in srgb, var(--color-ink) 50%, var(--color-paper));
+  background-clip: content-box;
+  border: 2px solid transparent;
+}
+
+::-webkit-scrollbar-thumb:hover,
+::-webkit-scrollbar-thumb:active {
+  background-color: var(--color-crimson);
+}
+
+/* The 50/50 mix clears 3:1 against paper. High-contrast users get full ink instead. */
+@media (prefers-contrast: more) {
+  @supports (scrollbar-width: thin) and (not selector(::-webkit-scrollbar)) {
+    html {
+      scrollbar-color: var(--color-ink) var(--color-paper);
+    }
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background-color: var(--color-ink);
+  }
+}
+
 /* Scroll progress bar */
 .scroll-progress {
   z-index: 60;
